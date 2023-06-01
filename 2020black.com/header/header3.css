@@ -1,0 +1,33 @@
+.btn-group {
+  width: 100%;
+}
+.btn-group .btn-danger {
+  background-color: var(--red);
+  border: none;
+}
+.dropdown-menu {
+  width: 100%;
+}
+.percent {
+  width: max-content;
+  background-color: var(--red);
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+}
+.percent:hover {
+  background-color: var(--red);
+}
+.buttonpopup {
+  direction: ltr;
+}
+.dropdown-toggle {
+  position: relative;
+}
+.menusite {
+  position: absolute;
+  right: 20px;
+  top: 1px;
+}
