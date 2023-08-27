@@ -1,16 +1,18 @@
 # Python
 *.pyc
 *.pyo
-db.sqlite3
+__pycache__
 
 # Django
 /staticfiles_collected/
+migrations
+chat
+venv
 
 # Divio
 .divio
 /data.tar.gz
 /data
-
 
 # OS-specific patterns - add your own here
 .DS_Store
