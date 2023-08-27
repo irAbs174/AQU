@@ -3,32 +3,23 @@ import os
 import dj_database_url
 from django_storage_url import dsn_configured_storage_class
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', '<a string of random characters>')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG') == "True"
 
 ALLOWED_HOSTS = [os.environ.get('DOMAIN'),]
 if DEBUG:
     ALLOWED_HOSTS = ["*",]
 
-# Redirect to HTTPS by default, unless explicitly disabled
 SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT') != "False"
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-
-# Application definition
-
 INSTALLED_APPS = [
     'backend',
 
-    # optional, but used in most projects
     'djangocms_admin_style',
 
     'django.contrib.admin',
@@ -36,24 +27,20 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',  # http://whitenoise.evans.io/en/stable/django.html#using-whitenoise-in-development
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
-    # key django CMS modules
     'cms',
     'menus',
     'treebeard',
     'sekizai',
 
-    # Django Filer - optional, but used in most projects
     'filer',
     'easy_thumbnails',
 
-    # the default CKEditor - optional, but used in most projects
     'djangocms_text_ckeditor',
 
-    # some content plugins - optional, but used in most projects
     'djangocms_file',
     'djangocms_icon',
     'djangocms_picture',
@@ -61,7 +48,6 @@ INSTALLED_APPS = [
     'djangocms_googlemap',
     'djangocms_video',
 
-    # optional django CMS Frontend modules
     'djangocms_frontend',
     'djangocms_frontend.contrib.accordion',
     'djangocms_frontend.contrib.alert',
@@ -132,33 +118,29 @@ TEMPLATES = [
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
     'easy_thumbnails.processors.autocrop',
-    #'easy_thumbnails.processors.scale_and_crop',
+    'easy_thumbnails.processors.scale_and_crop',
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
 
-
 CMS_TEMPLATES = [
-    ('index/index.html', 'Home page template'),
-    # a minimal template to get started with
+    ('index/index.html', 'Home'),
+    ('products/single.html', 'product_single'),
+    ('products/archive.html', 'product_archive'),
+    ('blog/single.html', 'blog_single'),
+    ('blog/archive.html', 'blog_archive'),
+    ('accounts/login/login.html', 'login'),
+    ('blog/archive.html', 'blog_archive'),
+    ('utils/factor/factor.html', 'Minimal template'),
     ('minimal.html', 'Minimal template'),
-
-    # optional templates that extend base.html, to be used with Bootstrap 5
     ('bootstrap5.html', 'Bootstrap 5 Demo'),
-
-    # serving static files with whitenoise demo
     ('whitenoise-static-files-demo.html', 'Static File Demo'),
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-# Configure database using DATABASE_URL; fall back to sqlite in memory when no
-# environment variable is available, e.g. during Docker build
 DATABASE_URL = os.environ.get('DATABASE_URL', 'sqlite://:memory:')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -167,9 +149,6 @@ DATABASES = {
 }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
-
-# Password validation
-# https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
 if not DEBUG:
     AUTH_PASSWORD_VALIDATORS = [
@@ -187,16 +166,10 @@ if not DEBUG:
         },
     ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.1/topics/i18n/
-
 LANGUAGE_CODE = 'fa'
 
 LANGUAGES = [
     ('fa', 'Persian'),
-    ('en', 'English'),
-    ('ar', 'Arabic'),
 ]
 
 TIME_ZONE = 'UTC'
@@ -207,29 +180,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_collected')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media files
-# DEFAULT_FILE_STORAGE is configured using DEFAULT_STORAGE_DSN
-
-# read the setting value from the environment variable
 DEFAULT_STORAGE_DSN = os.environ.get('DEFAULT_STORAGE_DSN')
 
-# dsn_configured_storage_class() requires the name of the setting
 DefaultStorageClass = dsn_configured_storage_class('DEFAULT_STORAGE_DSN')
 
-# Django's DEFAULT_FILE_STORAGE requires the class name
 DEFAULT_FILE_STORAGE = 'backend.settings.DefaultStorageClass'
 
-# only required for local file storage and serving, in development
 MEDIA_URL = 'media/'
 
 MEDIA_ROOT = os.path.join('/data/media/')

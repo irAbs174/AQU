@@ -1,481 +1,458 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.rtl.min.css"
-      integrity="sha384-T5m5WERuXcjgzF8DAb7tRkByEZQGcpraRTinjpywg37AO96WoYN9+hrhDVoM6CaT"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/style/template-css/products.css" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>آرشیو محصولات</title>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <header class="mb-3">
-        <div
-          id="carouselExampleAutoplaying"
-          class="carousel slide"
-          data-bs-ride="carousel"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="/image/header1.webp" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="/image/header2.webp" class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src="/image/header3.webp" class="d-block w-100" alt="..." />
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExampleAutoplaying"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+{% extends 'base.html' %}
+{% load static %}
+{% block CSS %}
+{% endblock %}
+{% block polls_content %}
+{% block content %}
+<div class="container-fluid">
+  <header class="mb-3">
+    <div
+      id="carouselExampleAutoplaying"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/image/header1.webp" class="d-block w-100" alt="..." />
         </div>
-      </header>
-      <div class="row">
-        <aside class="col-lg-3 col-md-4 col-sm-12 desaside">
-          <div class="position-sticky0">
-            <div class="p-4">
-              <h4 class="h4 bchs">دستــــــه بـنــدی ها</h4>
-              <div class="catprod">
-                <li><a href=""> تجهیزات استخری آکوا </a></li>
-                <li><a href=""> چراغ استخری استی</a></li>
-                <li><a href=""> آبنما استیل استخری آکوا</a></li>
-                <li><a href=""> گریل استخری استیل</a></li>
-                <li><a href=""> چراغ استخری توکار</a></li>
-                <li><a href=""> چراغ استخری روکار</a></li>
-                <li><a href=""> انواع پمپ استخری</a></li>
-                <li><a href=""> تجهیزات استخری آکوا </a></li>
-                <li><a href=""> تجهیزات استخری آکوا </a></li>
-              </div>
-            </div>
-          </div>
-          <div class="position-sticky1">
-            <div class="p-4">
-              <h4 class="h4 bchs">فـیلتر محصـــولات</h4>
-              <div class="filprod">
-                <div class="form-check form-switch row">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                  <span>محصولات آکوا</span>
-                </div>
-                <div class="form-check form-switch row">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                  <span> محصولات تخفیف دار</span>
-                </div>
-                <div class="form-check form-switch row">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                  <span> تجهیزات استخری </span>
-                </div>
-                <div class="form-check form-switch row">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                  <span> آبنما استخری</span>
-                </div>
-                <div class="form-check form-switch row">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    role="switch"
-                    id="flexSwitchCheckDefault"
-                  />
-                  <span>فقط محصولات موجود</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="position-sticky2">
-            <div class="p-4">
-              <h4 class="h4 bchs">فیـلتر بر اساس قیــــمت</h4>
-              <div class="filpr">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="formGroupExampleInput"
-                  placeholder="قسمت از.......تومان"
-                />
-                <input
-                  type="text"
-                  class="form-control"
-                  id="formGroupExampleInput"
-                  placeholder="قسمت از.......تومان"
-                />
-                <button type="submit" class="btn btn-primary">
-                  اعمال تغییرات
-                </button>
-              </div>
-            </div>
-          </div>
-        </aside>
-        <main class="col-lg-9 col-md-8 col-sm-12">
-          <div class="filteraside">
-            <button
-              class="btn btn-primary"
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasWithBothOptions"
-              aria-controls="offcanvasWithBothOptions"
-            >
-              فیلتر محصولات
-            </button>
-            <div
-              class="offcanvas offcanvas-start"
-              data-bs-scroll="true"
-              tabindex="-1"
-              id="offcanvasWithBothOptions"
-              aria-labelledby="offcanvasWithBothOptionsLabel"
-            >
-              <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
-                  فیلتر محصولات
-                </h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="offcanvas-body">
-                <!-- ---------- -->
-                <aside>
-                  <div class="position-sticky0">
-                    <div class="p-4">
-                      <h4 class="h4 bchs">دستــــــه بـنــدی ها</h4>
-                      <div class="catprod">
-                        <li><a href=""> تجهیزات استخری آکوا </a></li>
-                        <li><a href=""> چراغ استخری استی</a></li>
-                        <li><a href=""> آبنما استیل استخری آکوا</a></li>
-                        <li><a href=""> گریل استخری استیل</a></li>
-                        <li><a href=""> چراغ استخری توکار</a></li>
-                        <li><a href=""> چراغ استخری روکار</a></li>
-                        <li><a href=""> انواع پمپ استخری</a></li>
-                        <li><a href=""> تجهیزات استخری آکوا </a></li>
-                        <li><a href=""> تجهیزات استخری آکوا </a></li>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="position-sticky1">
-                    <div class="p-4">
-                      <h4 class="h4 bchs">فـیلتر محصـــولات</h4>
-                      <div class="filprod">
-                        <div class="form-check form-switch row">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            role="switch"
-                            id="flexSwitchCheckDefault"
-                          />
-                          <span>محصولات برند آکوا</span>
-                        </div>
-                        <div class="form-check form-switch row">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            role="switch"
-                            id="flexSwitchCheckDefault"
-                          />
-                          <span>فقط محصولات تخفیف دار</span>
-                        </div>
-                        <div class="form-check form-switch row">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            role="switch"
-                            id="flexSwitchCheckDefault"
-                          />
-                          <span>فقط تجهیزات استخری </span>
-                        </div>
-                        <div class="form-check form-switch row">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            role="switch"
-                            id="flexSwitchCheckDefault"
-                          />
-                          <span>فقط آبنما استخری</span>
-                        </div>
-                        <div class="form-check form-switch row">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            role="switch"
-                            id="flexSwitchCheckDefault"
-                          />
-                          <span>فقط محصولات موجود</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="position-sticky2">
-                    <div class="p-4">
-                      <h4 class="h4 bchs">فیـلتر بر اساس قیــــمت</h4>
-                      <div class="filpr">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="formGroupExampleInput"
-                          placeholder="قسمت از.......تومان"
-                        />
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="formGroupExampleInput"
-                          placeholder="قسمت از.......تومان"
-                        />
-                        <button type="submit" class="btn btn-primary">
-                          اعمال تغییرات
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </aside>
-                <!-- ---------- -->
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-            <div class="cardpro">
-              <img src="/image/download.png" class="card-img-top" alt="..." />
-              <div class="cardpro-body">
-                <h3 class="h5 cardpro-title">
-                  <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
-                </h3>
-                <span class="text-decoration-line-through icon2"
-                  >290.000 تومان</span
-                ><br />
-                <span class="h5 bluer-c">200.000 تومان</span><br />
-                <span>ارسال به سراسر کشور</span>
-              </div>
-            </div>
-          </div>
-          <div class="mt-3 listpage">
-            <div aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                  </a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">1</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">2</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">3</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">4</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#">5</a>
-                </li>
-                <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </main>
+        <div class="carousel-item">
+          <img src="/image/header2.webp" class="d-block w-100" alt="..." />
+        </div>
+        <div class="carousel-item">
+          <img src="/image/header3.webp" class="d-block w-100" alt="..." />
+        </div>
       </div>
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselExampleAutoplaying"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
-      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
-      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
-      crossorigin="anonymous"
-    ></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="/js/producs.js"></script>
-  </body>
-</html>
+  </header>
+  <div class="row">
+    <aside class="col-lg-3 col-md-4 col-sm-12 desaside">
+      <div class="position-sticky0">
+        <div class="p-4">
+          <h4 class="h4 bchs">دستــــــه بـنــدی ها</h4>
+          <div class="catprod">
+            <li><a href=""> تجهیزات استخری آکوا </a></li>
+            <li><a href=""> چراغ استخری استی</a></li>
+            <li><a href=""> آبنما استیل استخری آکوا</a></li>
+            <li><a href=""> گریل استخری استیل</a></li>
+            <li><a href=""> چراغ استخری توکار</a></li>
+            <li><a href=""> چراغ استخری روکار</a></li>
+            <li><a href=""> انواع پمپ استخری</a></li>
+            <li><a href=""> تجهیزات استخری آکوا </a></li>
+            <li><a href=""> تجهیزات استخری آکوا </a></li>
+          </div>
+        </div>
+      </div>
+      <div class="position-sticky1">
+        <div class="p-4">
+          <h4 class="h4 bchs">فـیلتر محصـــولات</h4>
+          <div class="filprod">
+            <div class="form-check form-switch row">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <span>محصولات آکوا</span>
+            </div>
+            <div class="form-check form-switch row">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <span> محصولات تخفیف دار</span>
+            </div>
+            <div class="form-check form-switch row">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <span> تجهیزات استخری </span>
+            </div>
+            <div class="form-check form-switch row">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <span> آبنما استخری</span>
+            </div>
+            <div class="form-check form-switch row">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+              />
+              <span>فقط محصولات موجود</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="position-sticky2">
+        <div class="p-4">
+          <h4 class="h4 bchs">فیـلتر بر اساس قیــــمت</h4>
+          <div class="filpr">
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="قسمت از.......تومان"
+            />
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="قسمت از.......تومان"
+            />
+            <button type="submit" class="btn btn-primary">
+              اعمال تغییرات
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <main class="col-lg-9 col-md-8 col-sm-12">
+      <div class="filteraside">
+        <button
+          class="btn btn-primary"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasWithBothOptions"
+          aria-controls="offcanvasWithBothOptions"
+        >
+          فیلتر محصولات
+        </button>
+        <div
+          class="offcanvas offcanvas-start"
+          data-bs-scroll="true"
+          tabindex="-1"
+          id="offcanvasWithBothOptions"
+          aria-labelledby="offcanvasWithBothOptionsLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+              فیلتر محصولات
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- ---------- -->
+            <aside>
+              <div class="position-sticky0">
+                <div class="p-4">
+                  <h4 class="h4 bchs">دستــــــه بـنــدی ها</h4>
+                  <div class="catprod">
+                    <li><a href=""> تجهیزات استخری آکوا </a></li>
+                    <li><a href=""> چراغ استخری استی</a></li>
+                    <li><a href=""> آبنما استیل استخری آکوا</a></li>
+                    <li><a href=""> گریل استخری استیل</a></li>
+                    <li><a href=""> چراغ استخری توکار</a></li>
+                    <li><a href=""> چراغ استخری روکار</a></li>
+                    <li><a href=""> انواع پمپ استخری</a></li>
+                    <li><a href=""> تجهیزات استخری آکوا </a></li>
+                    <li><a href=""> تجهیزات استخری آکوا </a></li>
+                  </div>
+                </div>
+              </div>
+              <div class="position-sticky1">
+                <div class="p-4">
+                  <h4 class="h4 bchs">فـیلتر محصـــولات</h4>
+                  <div class="filprod">
+                    <div class="form-check form-switch row">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="flexSwitchCheckDefault"
+                      />
+                      <span>محصولات برند آکوا</span>
+                    </div>
+                    <div class="form-check form-switch row">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="flexSwitchCheckDefault"
+                      />
+                      <span>فقط محصولات تخفیف دار</span>
+                    </div>
+                    <div class="form-check form-switch row">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="flexSwitchCheckDefault"
+                      />
+                      <span>فقط تجهیزات استخری </span>
+                    </div>
+                    <div class="form-check form-switch row">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="flexSwitchCheckDefault"
+                      />
+                      <span>فقط آبنما استخری</span>
+                    </div>
+                    <div class="form-check form-switch row">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        role="switch"
+                        id="flexSwitchCheckDefault"
+                      />
+                      <span>فقط محصولات موجود</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="position-sticky2">
+                <div class="p-4">
+                  <h4 class="h4 bchs">فیـلتر بر اساس قیــــمت</h4>
+                  <div class="filpr">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="formGroupExampleInput"
+                      placeholder="قسمت از.......تومان"
+                    />
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="formGroupExampleInput"
+                      placeholder="قسمت از.......تومان"
+                    />
+                    <button type="submit" class="btn btn-primary">
+                      اعمال تغییرات
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </aside>
+            <!-- ---------- -->
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+        <div class="cardpro">
+          <img src="/image/download.png" class="card-img-top" alt="..." />
+          <div class="cardpro-body">
+            <h3 class="h5 cardpro-title">
+              <a href="" class="bluer-c"> کرتین استخری استیل نقره ای</a>
+            </h3>
+            <span class="text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span class="h5 bluer-c">200.000 تومان</span><br />
+            <span>ارسال به سراسر کشور</span>
+          </div>
+        </div>
+      </div>
+      <div class="mt-3 listpage">
+        <div aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">4</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">5</a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+{% endblock %}
+{% endblock %}
