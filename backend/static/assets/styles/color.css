@@ -1,0 +1,31 @@
+:root {
+    --bluer: #0038ff;
+    --bluet: #000f97;
+    --black: #2b2b2b;
+    --white: #ffffff;
+  }
+  .bluer-c {
+    color: var(--bluer) !important;
+  }
+  .bluer-bc {
+    background-color: var(--bluer) !important;
+  }
+  .bluet-c {
+    color: var(--bluet) !important;
+  }
+  .bluet-bc {
+    background-color: var(--bluet) !important;
+  }
+  .black-c {
+    color: var(--black) !important;
+  }
+  .black-bc {
+    background-color: var(--black) !important;
+  }
+  .white-c {
+    color: var(--white) !important;
+  }
+  .white-bc {
+    background-color: var(--white) !important;
+  }
+  

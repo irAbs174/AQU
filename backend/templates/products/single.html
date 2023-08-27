@@ -1,0 +1,697 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'assets/styles/products/single.css' %}">
+{% endblock %}
+{% block polls_content %}
+{% block content %}
+    <main class="container-fluid">
+        <div class="row">
+          <section class="col-xl-9 col-lg-8 col-md-12 col-sm-12 col-12">
+            <div class="blog-post">
+              <div class="row headrpro">
+                <div class="col-md-5 col-sm-12 col-12 text-start">
+                  <div class="containerslid imgslidpro">
+                    <div class="mySlides">
+                      <div class="numbertext">1 / 6</div>
+                      <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                    </div>
+    
+                    <div class="mySlides">
+                      <div class="numbertext">2 / 6</div>
+                      <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                    </div>
+    
+                    <div class="mySlides">
+                      <div class="numbertext">3 / 6</div>
+                      <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                    </div>
+    
+                    <div class="mySlides">
+                      <div class="numbertext">4 / 6</div>
+                      <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                    </div>
+    
+                    <div class="mySlides">
+                      <div class="numbertext">5 / 6</div>
+                      <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                    </div>
+    
+                    <div class="mySlides">
+                      <div class="numbertext">6 / 6</div>
+                      <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                    </div>
+    
+                    <a class="next" onclick="plusSlides(-1)">❯</a>
+                    <a class="prev" onclick="plusSlides(1)">❮</a>
+    
+                    <div class="row1">
+                      <div class="column">
+                        <img class="demo cursorpro" src="{% static 'django-cms-logo.png' %}" style="width: 100%" onclick="currentSlide(1)"
+                          alt="The Woods" />
+                      </div>
+                      <div class="column">
+                        <img class="demo cursorpro" src="{% static 'django-cms-logo.png' %}" style="width: 100%" onclick="currentSlide(2)"
+                          alt="Cinque Terre" />
+                      </div>
+                      <div class="column">
+                        <img class="demo cursorpro" src="{% static 'django-cms-logo.png' %}" style="width: 100%" onclick="currentSlide(3)"
+                          alt="Mountains and fjords" />
+                      </div>
+                      <div class="column">
+                        <img class="demo cursorpro" src="{% static 'django-cms-logo.png' %}"
+                          style="width: 100%" onclick="currentSlide(4)" alt="Northern Lights" />
+                      </div>
+                      <div class="column">
+                        <img class="demo cursorpro" src="{% static 'django-cms-logo.png' %}" style="width: 100%" onclick="currentSlide(5)"
+                          alt="Nature and sunrise" />
+                      </div>
+                      <div class="column">
+                        <img class="demo cursorpro" src="{% static 'django-cms-logo.png' %}" style="width: 100%" onclick="currentSlide(6)"
+                          alt="Snowy Mountains" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-7 col-12 conttextpro">
+                  <h1 class="h3 bluer-c">نام محصول اینج است</h1>
+                  <ul>
+                    <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                    <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                    <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                    <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                    <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                  </ul>
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                    با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه زمان مورد
+                    نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته
+                    اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                  </p>
+                </div>
+              </div>
+              <div class="position-sticky1 mt-4">
+                <div class="p-4">
+                  <h4 class="h3 bchs">ثبت فاکـــتور آنلاین</h4>
+                  <div class="text-center">
+                    <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                    <span class="h4">200.000 تومان</span><br />
+                    <span class="decrement cursor bi bi-dash-square-fill bluer-c h4"></span>
+                    <span class="count"><b>1</b> <span>عدد</span></span>
+                    <span class="increment cursor bi bi-plus-square-fill bluer-c h4"></span>
+                    <div class="color-picker">
+                      <select id="color-select">
+                        <option value="">انتخاب رنگ</option>
+                        <option value="red">قرمز</option>
+                        <option value="green">سبز</option>
+                        <option value="blue">آبی</option>
+                        <option value="yellow">زرد</option>
+                        <option value="orange">نارنجی</option>
+                        <option value="purple">بنفش</option>
+                        <option value="pink">صورتی</option>
+                        <option value="cyan">فیروزه‌ای</option>
+                        <option value="magenta">ارغوانی</option>
+                        <option value="gray">خاکستری</option>
+                      </select>
+                      <div class="selected-color"></div>
+                    </div>
+                    <button type="submit" class="w-100 btn btn-primary addtocard">
+                      افزودن به فاکتـــور
+                    </button>
+                  </div>
+                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                    شماوره فنی و معماری رایگان
+                  </button>
+                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                    ارتباط با کارشناس فروش
+                  </button>
+                  <div class="h6 mt-2 text-center">
+                    محصول سفارشی قابل تولید است
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="nav nav-tabs mt-2" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-1-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button"
+                    role="tab" aria-controls="nav-home" aria-selected="true">
+                    <h4 class="h6">توضیحات</h4>
+                  </button>
+                  <button class="nav-link" id="nav-2-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button"
+                    role="tab" aria-controls="nav-2" aria-selected="false">
+                    <h4 class="h6">مشخصات</h4>
+                  </button>
+                  <button class="nav-link" id="nav-3-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button"
+                    role="tab" aria-controls="nav-3" aria-selected="false">
+                    <h4 class="h6">نظرات</h4>
+                  </button>
+                </div>
+              </div>
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-home-tab"
+                  tabindex="0">
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                    با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه زمان مورد
+                    نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته
+                    اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                  </p>
+                </div>
+                <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                  <table class="Specificationslist">
+                    <tr class="trtd-a">
+                      <td>برند محصول:</td>
+                      <td>برند محصول</td>
+                    </tr>
+                    <tr>
+                      <td>نوع محصول:</td>
+                      <td>نوع محصول</td>
+                    </tr>
+                    <tr class="trtd-a">
+                      <td>جنس محصول:</td>
+                      <td>جنس محصول</td>
+                    </tr>
+                    <tr>
+                      <td>وزن محصول:</td>
+                      <td>وزن محصول</td>
+                    </tr>
+                    <tr class="trtd-a">
+                      <td>ابعاد خارجی محصول:</td>
+                      <td>ابعاد خارجی محصول</td>
+                    </tr>
+                    <tr>
+                      <td>سایز محصول:</td>
+                      <td>سایز محصول</td>
+                    </tr>
+                    <tr class="trtd-a">
+                      <td>گارانتی محصول:</td>
+                      <td>گارانتی محصول</td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                  <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                    با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه زمان مورد
+                    نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته
+                    اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                  </p>
+                </div>
+              </div>
+              <div class="container-fluid promosh">
+                <h5 class="">محصولات مشابه</h5>
+                <div class="row">
+                  <div class="cardpro">
+                    <img src="{% static 'django-cms-logo.png' %}" class="card-img-top" alt="..." />
+                    <div class="cardpro-body">
+                      <h3 class="h5 cardpro-title">
+                        کرتین استخری استیل نقره ای
+                      </h3>
+                      <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                      <span class="h5 bluer-c">200.000 تومان</span><br />
+                      <a href="#" class="btn btn-primary mt-1 mb-1">مشاهده محصول</a><span class="m-1 mb-1">
+                        <a class="btn btn-primary bi bi-eye-fill" data-bs-target="#exampleModalToggle"
+                          data-bs-toggle="modal">
+                        </a>
+                      </span>
+                      <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                                مشاهده سریع محصول
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                              <h3 class="h3 bluer-c">نام محصول اینج است</h3>
+                              <ul>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                              </ul>
+                              <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                                چاپگرها و متون بلکه زمان مورد نیاز شامل حروفچینی
+                                دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
+                                دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                              </p>
+                            </div>
+    
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                انتخاب گزینه ها
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                                انتخاب آسان
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="position-sticky">
+                                <div class="p-4">
+                                  <h4 class="h3 bchs">ثبت فاکـــتور آنلاین</h4>
+                                  <div class="text-center">
+                                    <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                                    <span class="h4">200.000 تومان</span><br />
+                                    <span class="decrement cursor bi bi-dash-square-fill bluer-c h4"></span>
+                                    <span class="count"><b>1</b> <span>عدد</span></span>
+                                    <span class="increment cursor bi bi-plus-square-fill bluer-c h4"></span>
+                                    <div class="color-picker">
+                                      <select id="color-select">
+                                        <option value="">انتخاب رنگ</option>
+                                        <option value="red">قرمز</option>
+                                        <option value="green">سبز</option>
+                                        <option value="blue">آبی</option>
+                                        <option value="yellow">زرد</option>
+                                        <option value="orange">نارنجی</option>
+                                        <option value="purple">بنفش</option>
+                                        <option value="pink">صورتی</option>
+                                        <option value="cyan">فیروزه‌ای</option>
+                                        <option value="magenta">ارغوانی</option>
+                                        <option value="gray">خاکستری</option>
+                                      </select>
+                                      <div class="selected-color"></div>
+                                    </div>
+                                    <button type="submit" class="w-100 btn btn-primary addtocard">
+                                      افزودن به فاکتـــور
+                                    </button>
+                                  </div>
+                                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                                    شماوره فنی و معماری رایگان
+                                  </button>
+                                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                                    ارتباط با کارشناس فروش
+                                  </button>
+                                  <div class="h6 mt-2 text-center">
+                                    محصول سفارشی قابل تولید است
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                بازگشت به اطلاعات
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cardpro">
+                    <img src="{% static 'django-cms-logo.png' %}" class="card-img-top" alt="..." />
+                    <div class="cardpro-body">
+                      <h3 class="h5 cardpro-title">
+                        کرتین اتخری استیل نقره ای
+                      </h3>
+                      <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                      <span class="h5 bluer-c">200.000 تومان</span><br />
+                      <a href="#" class="btn btn-primary mt-1 mb-1">مشاهده محصول</a><span class="m-1 mb-1">
+                        <a class="btn btn-primary bi bi-eye-fill" data-bs-target="#exampleModalToggle"
+                          data-bs-toggle="modal">
+                        </a>
+                      </span>
+                      <!-- ------------------------ -->
+                      <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                                مشاهده سریع محصول
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                              <h3 class="h3 bluer-c">نام محصول اینج است</h3>
+                              <ul>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                              </ul>
+                              <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                                چاپگرها و متون بلکه زمان مورد نیاز شامل حروفچینی
+                                دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل
+                                دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                              </p>
+                            </div>
+    
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                انتخاب گزینه ها
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                                Modal 2
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="position-sticky">
+                                <div class="p-4">
+                                  <h4 class="h3 bchs">ثبت فاکـــتور آنلاین</h4>
+                                  <div class="text-center">
+                                    <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                                    <span class="h4">200.000 تومان</span><br />
+                                    <span class="decrement cursor bi bi-dash-square-fill bluer-c h4"></span>
+                                    <span class="count"><b>1</b> <span>عدد</span></span>
+                                    <span class="increment cursor bi bi-plus-square-fill bluer-c h4"></span>
+                                    <div class="color-picker">
+                                      <select id="color-select">
+                                        <option value="">انتخاب رنگ</option>
+                                        <option value="red">قرمز</option>
+                                        <option value="green">سبز</option>
+                                        <option value="blue">آبی</option>
+                                        <option value="yellow">زرد</option>
+                                        <option value="orange">نارنجی</option>
+                                        <option value="purple">بنفش</option>
+                                        <option value="pink">صورتی</option>
+                                        <option value="cyan">فیروزه‌ای</option>
+                                        <option value="magenta">ارغوانی</option>
+                                        <option value="gray">خاکستری</option>
+                                      </select>
+                                      <div class="selected-color"></div>
+                                    </div>
+                                    <button type="submit" class="w-100 btn btn-primary addtocard">
+                                      افزودن به فاکتـــور
+                                    </button>
+                                  </div>
+                                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                                    شماوره فنی و معماری رایگان
+                                  </button>
+                                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                                    ارتباط با کارشناس فروش
+                                  </button>
+                                  <div class="h6 mt-2 text-center">
+                                    محصول سفارشی قابل تولید است
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                بازگشت به اطلاعات
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <!-- ------------------------ -->
+                    </div>
+                  </div>
+                  <div class="cardpro">
+                    <img src="{% static 'django-cms-logo.png' %}" class="card-img-top" alt="..." />
+                    <div class="cardpro-body">
+                      <h3 class="h5 cardpro-title">کرتین اتخری استیل نقره ای</h3>
+                      <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                      <span class="h5 bluer-c">200.000 تومان</span><br />
+                      <a href="#" class="btn btn-primary mt-1 mb-1">مشاهده محصول</a><span class="m-1 mb-1">
+                        <a class="btn btn-primary bi bi-eye-fill" data-bs-target="#exampleModalToggle"
+                          data-bs-toggle="modal">
+                        </a>
+                      </span>
+                      <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                                مشاهده سریع محصول
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                              <h3 class="h3 bluer-c">نام محصول اینج است</h3>
+                              <ul>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                              </ul>
+                              <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                                چاپگرها و متون بلکه زمان مورد نیاز شامل حروفچینی
+                                دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای
+                                موجود طراحی اساسا مورد استفاده قرار گیرد.
+                              </p>
+                            </div>  
+    
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                انتخاب گزینه ها
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                                Modal 2
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="position-sticky">
+                                <div class="p-4">
+                                  <h4 class="h3 bchs">ثبت فاکـــتور آنلاین</h4>
+                                  <div class="text-center">
+                                    <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                                    <span class="h4">200.000 تومان</span><br />
+                                    <span class="decrement cursor bi bi-dash-square-fill bluer-c h4"></span>
+                                    <span class="count"><b>1</b> <span>عدد</span></span>
+                                    <span class="increment cursor bi bi-plus-square-fill bluer-c h4"></span>
+                                    <div class="color-picker">
+                                      <select id="color-select">
+                                        <option value="">انتخاب رنگ</option>
+                                        <option value="red">قرمز</option>
+                                        <option value="green">سبز</option>
+                                        <option value="blue">آبی</option>
+                                        <option value="yellow">زرد</option>
+                                        <option value="orange">نارنجی</option>
+                                        <option value="purple">بنفش</option>
+                                        <option value="pink">صورتی</option>
+                                        <option value="cyan">فیروزه‌ای</option>
+                                        <option value="magenta">ارغوانی</option>
+                                        <option value="gray">خاکستری</option>
+                                      </select>
+                                      <div class="selected-color"></div>
+                                    </div>
+                                    <button type="submit" class="w-100 btn btn-primary addtocard">
+                                      افزودن به فاکتـــور
+                                    </button>
+                                  </div>
+                                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                                    شماوره فنی و معماری رایگان
+                                  </button>
+                                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                                    ارتباط با کارشناس فروش
+                                  </button>
+                                  <div class="h6 mt-2 text-center">
+                                    محصول سفارشی قابل تولید است
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                بازگشت به اطلاعات
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cardpro">
+                    <img src="{% static 'django-cms-logo.png' %}" class="card-img-top" alt="..." />
+                    <div class="cardpro-body">
+                      <h3 class="h5 cardpro-title">کرتین اتخری استیل نقره ای</h3>
+                      <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                      <span class="h5 bluer-c">200.000 تومان</span><br />
+                      <a href="#" class="btn btn-primary mt-1 mb-1">مشاهده محصول</a><span class="m-1 mb-1">
+                        <a class="btn btn-primary bi bi-eye-fill" data-bs-target="#exampleModalToggle"
+                          data-bs-toggle="modal">
+                        </a>
+                      </span>
+                      <div class="modal fade" id="exampleModalToggle" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+                                مشاهده سریع محصول
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <img src="{% static 'django-cms-logo.png' %}" style="width: 100%" />
+                              <h3 class="h3 bluer-c">نام محصول اینج است</h3>
+                              <ul>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                                <li>لورم ایپسوم متن ساختگی با تولید سادگی</li>
+                              </ul>
+                              <p>
+                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                                صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                                چاپگرها و متون بلکه زمان مورد نیاز شامل حروفچینی
+                                دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای
+                                موجود طراحی اساسا مورد استفاده قرار گیرد.
+                              </p>
+                            </div>
+    
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">
+                                انتخاب گزینه ها
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true"
+                        aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">
+                                Modal 2
+                              </h1>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <div class="position-sticky">
+                                <div class="p-4">
+                                  <h4 class="h3 bchs">ثبت فاکـــتور آنلاین</h4>
+                                  <div class="text-center">
+                                    <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                                    <span class="h4">200.000 تومان</span><br />
+                                    <span class="decrement cursor bi bi-dash-square-fill bluer-c h4"></span>
+                                    <span class="count"><b>1</b> <span>عدد</span></span>
+                                    <span class="increment cursor bi bi-plus-square-fill bluer-c h4"></span>
+                                    <div class="color-picker">
+                                      <select id="color-select">
+                                        <option value="">انتخاب رنگ</option>
+                                        <option value="red">قرمز</option>
+                                        <option value="green">سبز</option>
+                                        <option value="blue">آبی</option>
+                                        <option value="yellow">زرد</option>
+                                        <option value="orange">نارنجی</option>
+                                        <option value="purple">بنفش</option>
+                                        <option value="pink">صورتی</option>
+                                        <option value="cyan">فیروزه‌ای</option>
+                                        <option value="magenta">ارغوانی</option>
+                                        <option value="gray">خاکستری</option>
+                                      </select>
+                                      <div class="selected-color"></div>
+                                    </div>
+                                    <button type="submit" class="w-100 btn btn-primary addtocard">
+                                      افزودن به فاکتـــور
+                                    </button>
+                                  </div>
+                                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                                    شماوره فنی و معماری رایگان
+                                  </button>
+                                  <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                                    ارتباط با کارشناس فروش
+                                  </button>
+                                  <div class="h6 mt-2 text-center">
+                                    محصول سفارشی قابل تولید است
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
+                                بازگشت به اطلاعات
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="col-xxl-3 col-xl-3 col-lg-4 selleronline">
+            <div class="position-sticky">
+              <div class="p-4">
+                <h4 class="h3 bchs">ثبت فاکـــتور آنلاین</h4>
+                <div class="text-center">
+                  <span class="text-decoration-line-through icon2">290.000 تومان</span><br />
+                  <span class="h4">200.000 تومان</span><br />
+                  <span class="decrement cursor bi bi-dash-square-fill bluer-c h4"></span>
+                  <span class="count"><b>1</b> <span>عدد</span></span>
+                  <span class="increment cursor bi bi-plus-square-fill bluer-c h4"></span>
+                  <div class="color-picker">
+                    <select id="color-select">
+                      <option value="">انتخاب رنگ</option>
+                      <option value="red">قرمز</option>
+                      <option value="green">سبز</option>
+                      <option value="blue">آبی</option>
+                      <option value="yellow">زرد</option>
+                      <option value="orange">نارنجی</option>
+                      <option value="purple">بنفش</option>
+                      <option value="pink">صورتی</option>
+                      <option value="cyan">فیروزه‌ای</option>
+                      <option value="magenta">ارغوانی</option>
+                      <option value="gray">خاکستری</option>
+                    </select>
+                    <div class="selected-color"></div>
+                  </div>
+                  <button type="submit" class="w-100 btn btn-primary addtocard">
+                    افزودن به فاکتـــور
+                  </button>
+                </div>
+                <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                  شماوره فنی و معماری رایگان
+                </button>
+                <button type="submit" class="w-100 mt-2 btn btn-outline-primary">
+                  ارتباط با کارشناس فروش
+                </button>
+                <div class="h6 mt-2 text-center">محصول سفارشی قابل تولید است</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    {% endblock %}
+{% endblock %}

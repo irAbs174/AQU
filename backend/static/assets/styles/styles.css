@@ -1,0 +1,54 @@
+@import url(color.css);
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+
+@font-face {
+  font-family: pyadeh-light;
+  src: url(fonts/woff2/peydaWeb-light.woff2) format(woff2);
+}
+
+@font-face {
+  font-family: pyadeh-Bold;
+  src: url(fonts/woff2/PeydaWeb-Bold.woff2) format(woff2);
+}
+
+*,
+body {
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
+  font-family: pyadeh-light;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: pyadeh-Bold;
+  font-style: normal;
+}
+
+body {
+  background-color: #e1e1e1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container-fluid {
+  max-width: 1600px;
+}
+
+::selection {
+  color: var(--white);
+  background-color: var(--bluet);
+}
+
+.bchs {
+  border-bottom: 3px solid var(--bluer);
+  text-align: center;
+  width: max-content;
+}
