@@ -1,3 +1,7 @@
+from pathlib import Path
+import os
+
+
 SECRET_KEY = 'YOUR_SECRET_KEY'
 DEBUG = True
 ALLOWED_HOSTS = ['YOUR_HOST']
@@ -7,3 +11,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = 'static/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = 'media/'
