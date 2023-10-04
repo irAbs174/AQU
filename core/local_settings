@@ -1,9 +1,0 @@
-SECRET_KEY = 'YOUR_SECRET_KEY'
-DEBUG = True
-ALLOWED_HOSTS = ['YOUR_HOST']
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
