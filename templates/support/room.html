@@ -1,0 +1,46 @@
+<!-- HTML (support.html) -->
+{% extends 'base.html' %}
+{% load static %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{% block TITLE %}پشتیبانی آنلاین{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/support/user.css' %}" />
+{% endblock %}
+{% block CONTENT %}
+{% csrf_token %}
+<input type="hidden" name="Supported_user" value="{{ request.user.phoneNumber }}">
+<header class="headerblog">
+    <div class="h1divhead">
+        <h1 class="blogh1 white-color">پشتیبانی آنلاین</h1>
+    </div>
+</header>
+<!-- بخش پیام ها -->
+<div class="mainall">
+    <div class="headchat">
+        <span class="titrheadchat">پشتیبانی آنلاین کیک پیک</span>
+    </div>
+    <div class="chat">
+        <div id="support_log" class="chatbody">
+            <!-- Existing messages will be appended here -->
+        </div>
+    </div>
+    <div class="textchat">
+        <div class="row">
+            <div class="col-md-10 col-sm-10 col-8">
+                <input id="support_message" type="text" name="text" placeholder="پیام خود را بنویسید..." class="intextchat">
+            </div>
+            <div class="col-md-2 col-sm-2 col-4">
+                <button id="support_submit" class="sendchat">ارسال</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block JS %}
+<script src="{% static 'js/support/support.js' %}"></script>
+{% endblock %}
+{% endblock %}

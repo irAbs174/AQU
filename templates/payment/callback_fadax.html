@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{% block TITLE %}نتیجه تراکنش فدکس{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% if status %}
+{% block CONTENT %}
+<script>
+    Swal.fire({
+        title: '{{message}}',
+        showConfirmButton: false,
+        timer: 28000,
+    });
+</script>
+{% else %}
+<script>
+    window.location.href = "/";
+</script>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,175 @@
+*,
+body {
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
+  font-family: vazir;
+  font-style: normal;
+}
+
+.blogh1 {
+  text-align: center;
+  padding-top: 50px;
+  color: rgb(255, 255, 255);
+}
+
+.h1divhead {
+  background-color: black;
+  color: var(--red);
+  height: 180px;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+/* --------------- */
+.mainall {
+  margin-bottom: 10px;
+
+}
+
+.chat {
+  padding: 20px;
+  max-width: 900px;
+  height: 500px;
+  overflow-y: scroll;
+  background-color: #f8f8f8;
+
+
+}
+
+.headchat {
+  max-width: 900px;
+  background-color: rgb(255, 0, 0);
+  padding: 10px;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.headchat img {
+  max-width: 60px;
+  min-width: 10px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.titrheadchat {
+  font-size: 20px;
+  color: white;
+}
+
+.chatbody {
+  width: 100%;
+}
+
+.textadmin {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  max-width: max-content
+}
+
+.textadmin::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.textadmin img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.textadmin img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.textuser {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  max-width: max-content
+}
+
+.dirltruser {
+  direction: ltr;
+}
+
+.dirrtladmin {
+  direction: rtl;
+}
+
+.darker {
+  border-color: #ccc;
+  background-color: #dadada;
+}
+
+.textuser::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.textuser img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.textuser img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
+
+.time-left {
+  float: left;
+  color: #999;
+}
+
+.textchat {
+  max-width: 900px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  border-radius: 0px 0px 10px 10px;
+
+}
+
+.textchat img {
+  max-width: 60px;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.intextchat {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.sendchat {
+  width: 90%;
+  padding: 15px;
+  border: none;
+  margin-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+
+}

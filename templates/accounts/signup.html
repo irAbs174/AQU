@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block TITLE%}ثبت نام کاربران{% endblock %}
+{% block HEADING %}
+<link rel="stylesheet" href="{% static 'css/accounts/stylelogin.css' %}" />
+{% endblock %}
+{% block CONTENT %}
+{% if user.is_authenticated %}
+<h3 style="color: red;"> Error : you are now Login ! </h3>
+<button onclick="window.history.back();">Go Back</button>
+<a href="{% url 'logout' %}"><button>logout</button></a>
+{% else %}
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col asidelogform">
+          <div class="container">
+            <section class="main">
+              <form class="form-3" method="POST">
+                {% csrf_token %}
+                <label for="{{ signup_form.phoneNumber.id_for_label }}">شماره تماس</label>
+                {{ form.phoneNumber }}
+                <label for="signup_form.password1.id_for_label">رمزعبور</label>
+                {{ form.password1 }}
+                <label for="signup_form.password2.id_for_label">تکرار رمزعبور</label>
+                {{ form.password2 }}
+                <input type="checkbox" name="remember" id="remember" />
+                <label for="remember">مرا به خاطر بسپار</label>
+                <input type="submit" name="submit" value="ساخت حساب کاربری" />
+              </form>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+{% endblock %}
+

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{% block TITLE %}آرشیو برندها{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block CONTENT %}
+{% csrf_token %}
+<header class="headerblog">
+      <div class="h1divhead">
+        <h1 class="blogh1 white-color">آرشیو برند ها</h1>
+      </div>
+    </header>
+    <main class="container-fluid">
+      <div class="row">
+        <section class="col-xxl-9 col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+          <div id="BRAND" class="row">
+            <!-- IMPORT CONTEXT FROM JS -->
+          </div>
+          <div class="plusbutton">
+            <button type="button" class="btn btn-outline-danger" id="load-more">
+              بارگیری بیشتر برند ها
+            </button>
+            </div>
+        </section>
+      </div>
+    </main>
+{% block JS %}
+<script src="{% static 'js/brand/brand_archive.js' %}"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+crossorigin="anonymous"
+></script>
+{% endblock %}
+{% endblock %}

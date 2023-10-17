@@ -1,0 +1,423 @@
+{% load i18n %}{% load static %}<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="icon" href="{% static "monitor/img/favicon.ico" %}">
+    <title>ترافیک وبگاه</title>
+    <link href="{% static 'monitor/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static "monitor/css/bootstrap-responsive.min.css" %}" rel="stylesheet">
+    <link href="{% static "monitor/css/fonts.css" %}" rel="stylesheet">
+    <link href="{% static "monitor/css/font-awesome.css" %}" rel="stylesheet">
+    <link href="{% static "monitor/css/style.css" %}" rel="stylesheet">
+    <link href="{% static "monitor/css/dashboard.css" %}" rel="stylesheet">
+
+    {% block style %}{% endblock %}
+</head>
+<body>
+<div class="navbar navbar-fixed-top" style="">
+    <div class="navbar-inner">
+    <div class="container">
+            <a class="brand" href="/">آنالیز ترافیک</a>
+            <ul class="btn btn-mini">
+            </ul>
+            <div class="nav-collapse">
+        </div>
+        </div>
+    </div>
+ </div>
+<div class="subnavbar visible-desktop visible-tablet">
+  <div class="subnavbar-inner">
+      <div class="container">
+        <ul class="mainnav">
+            <li><a href="#refresh-os"><i class="fa fa-dashboard"></i><span>عممومی</span> </a> </li>
+            <li><a href="#refresh-df"><i class="fa fa-hdd-o"></i><span>فضای ذخیره سازی</span> </a> </li>
+            <li><a href="#refresh-cpu"><i class="fa fa-check"></i><span>پردازنده</span> </a> </li>
+            <li><a href="#refresh-ram"><i class="fa fa-list-alt"></i><span>حافظه موقت</span> </a> </li>
+            <li><a href="#refresh-load"><i class="fa fa-bolt"></i><span>بارگزاری سایت</span> </a> </li>
+            <li><a href="#refresh-online"><i class="fa fa-user"></i><span>کاربران</span> </a> </li>
+            <li><a href="#refresh-netstat"><i class="fa fa-angle-down"></i><span>وضعیت شبکه</span> </a> </li>
+            <li><a href="#refresh-ispeed"><i class="fa fa-exchange"></i><span>شبکه</span> </a> </li>
+            <li><a href="#refresh-ps"><i class="fa fa-list-alt"></i><span>پردازش</span> </a> </li>
+            <li></li>
+    </ul>
+      </div>
+      <!-- /container --> 
+    </div>
+  <!-- /subnavbar-inner --> 
+</div>
+<div class="main">
+  <div class="main-inner"> 
+    <div class="container">
+    {% block content %}
+        
+     <div class="row">
+        
+        <div class="span3">
+         <div class="widget widget-table action-table">
+            <div class="widget-header"> <i class="fa fa-dashboard"></i>
+              <h3>اطلاعات عمومی</h3><i class="fa fa-minus"></i>
+              <div id="refresh-os">
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+                <br>
+              <div style="text-align:center;">
+        <b>سیستم عامل:</b> <span class="" id="get-osname"></span><br>
+                <b>Uptime:</b> <span class="" id="get-uptime"></span> ساعت<br>
+                <b>میزبان:</b> <span class="" id="get-hostname"></span><br>
+                <b>هسته:</b> <span class="" id="get-kernel"></span><br>
+        <b>پردازنده(s):</b> <span class="" id="get-cpucount"></span> x <span class="" id="get-cputype"></span>
+                <br><br>
+              </div>
+            </div>
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+        </div>
+        
+        <div class="span3">
+         <div class="widget widget-table action-table">
+            <div class="widget-header"> <i class="fa fa-check"></i>
+              <h3>مصرف پردازنده %</h3><i class="fa fa-minus"></i>
+              <div id="refresh-cpu">
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+            <p></p>
+                <canvas id="cpuuChart" width="270" height="180"></canvas>
+                <div>
+                <span class="cpuf">{% trans "Free" %}</span>
+                <span class="cpuu">{% trans "Used" %}</span>
+            </div>
+            </div>
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+        </div>
+        
+        <div class="span6">
+         <div class="widget widget-nopad">
+            <div class="widget-header"> <i class="fa fa-list-alt"></i>
+                <h3>مصرف حافظه</h3><i class="fa fa-minus"></i>
+                <div id="refresh-ram">
+                </div>
+            </div>
+            <!-- /widget-header -->
+                <div class="widget-content">
+                    <p></p>
+                    <canvas id="memoryChart" width="560" height="200"></canvas>
+                    <div>
+                <span class="memf">{% trans "Free" %}</span>
+                <span class="memu">{% trans "Used" %}</span>
+                <span class="memb">{% trans "Buffers" %}</span>
+                <span class="memc">{% trans "Cached" %}</span>
+                </div>
+                </div>
+                <!-- /widget-content -->
+                
+              </div>
+        </div>
+        
+     </div>
+    
+    <div class="row">
+         <div class="span6">
+           <div class="widget widget-table action-table">
+            <div class="widget-header"> <i class="fa fa-hdd-o"></i>
+              <h3>مصرف فضای ذخیره سازی</h3><i class="fa fa-minus"></i>
+              <div id="refresh-df">
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+        <table id="get_disk" class="table table-hover table-condensed table-bordered" >
+        </table>
+            </div>
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+         </div>
+          <div class="span6">
+            <div class="widget widget-table action-table">
+            <div class="widget-header"> <i class="fa fa-bolt"></i>
+              <h3>معدل بارگزاری</h3><i class="fa fa-minus"></i>
+              <div id="refresh-load">
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+                <p></p>
+                <canvas id="loadChart" width="560" height="200"></canvas>
+            </div>
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+          </div>
+        <!-- /span6 -->
+        </div>
+    <!-- /row -->
+    
+    
+      <div class="row">
+        <div class="span6">
+           <div class="widget widget-table action-table">
+            <div class="widget-header"> <i class="fa fa-level-up"></i>
+              <h3>IP آدرس</h3><i class="fa fa-minus"></i>
+              <div id="refresh-ip">
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+        <table id="get_ips" class="table table-hover table-condensed table-bordered">
+        </table>
+            </div>
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+         </div>
+         <!-- /span -->
+    
+         <div class="span3">
+           <div class="widget">
+            <div class="widget-header"> <i class="fa fa-exchange"></i>
+              <h3>ترافیک</h3><i class="fa fa-minus"></i>
+              <div id="refresh-ispeed">
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+            <p></p>
+                <canvas id="trfChart" width="270" height="200"></canvas>
+                <div>
+                <span class="netin">{% trans "In" %}</span>
+                <span class="netout">{% trans "Out" %}</span>
+            </div>
+            </div>
+            
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+         </div><!-- /span -->
+         
+         <div class="span3">
+           <div class="widget">
+            <div class="widget-header"> <i class="fa fa-angle-up"></i>
+              <h3>خواندن/نوشتن روی دیسک</h3><i class="fa fa-minus"></i>
+              <div id="refresh-diskio">
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+            <p></p>
+                <canvas id="dskChart" width="270" height="200"></canvas>
+                <div>
+                <span class="diskr">{% trans "Reads" %}</span>
+                <span class="diskw">{% trans "Writes" %}</span>
+            </div>
+            </div>
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+         </div>
+         <!-- /span -->
+      </div>
+      <!-- /row -->
+
+    <div class="row">
+        <div class="span6">
+             <div class="widget widget-table action-table">
+                <div class="widget-header"> <i class="fa fa-group"></i>
+                  <h3>Online: {{ online_users }}</h3><i class="fa fa-minus"></i>
+                  <div id="refresh-online">
+                  </div>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <table id="get_users" class="table table-hover table-condensed table-bordered">
+                    </table>
+                </div>
+                <!-- /widget-content -->
+             </div>
+              <!-- /widget -->
+        </div>
+        <!-- /span -->
+        <div class="span6">
+             <div class="widget widget-table action-table">
+                <div class="widget-header"> <i class="fa fa-angle-down"></i>
+                  <h3>وضعیت شبکه</h3><i class="fa fa-minus"></i>
+                  <div id="refresh-netstat">
+                  </div>
+                </div>
+                <!-- /widget-header -->
+                <div class="widget-content">
+                    <table id="get_netstat" class="table table-hover table-condensed table-bordered">
+                    </table>
+                </div>
+                <!-- /widget-content -->
+             </div>
+              <!-- /widget -->
+        </div>
+        <!-- /span -->
+    </div>
+    <!-- /row -->
+
+      <div class="row">
+        <div class="span12">
+          <div class="widget">
+            <div class="widget-header"> <i class="fa fa-list-alt"></i>
+              <h3> پردازش </h3><i class="fa fa-minus"></i>
+              <div id="refresh-ps">
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+        <table id="get_proc" class="table table-hover table-condensed table-bordered">
+        </table>
+            </div>
+            <!-- /widget-content -->
+          </div>
+          <!-- /widget -->
+        </div>
+        <!-- /span -->
+      </div>
+      <!-- /row -->
+      </div>
+      <!-- /container -->
+    </div>
+    <!-- /main-inner -->
+ </div>  
+<!-- /main -->      
+
+<div class="footer">
+  <div class="footer-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span6">&copy; <a href="http://github.com/irAbs174"> تمامی حقوق برای توسعه دهنده محفوظ است</a> </div>
+        <!-- /span12 --> 
+      </div>
+      <!-- /row --> 
+    </div>
+    <!-- /container --> 
+  </div>
+  <!-- /footer-inner --> 
+</div>
+<!-- /footer --> 
+
+{% endblock %}
+
+{% block script %}
+<script src="{% static "monitor/js/jquery.js" %}"></script>
+<script src="{% static "monitor/js/bootstrap.js" %}"></script>
+<script src="{% static "monitor/js/base.js" %}"></script>
+<script src="{% static "monitor/js/Chart.min.js" %}"></script>
+<script src="{% static "monitor/js/jquery.dataTables.min.js" %}"></script>
+<script src="{% static "monitor/js/dashboard.js" %}"></script>
+<!--[if lte IE 8]>
+    <script src="{% static "monitor/js/excanvas.js" %}"></script>
+<![endif]-->
+<script type="text/javascript">
+
+  var mem_ctx = $("#memoryChart").get(0).getContext("2d");
+          var memChart = new Chart(mem_ctx);
+          function memory_usage(){
+              $.getJSON('/info/memory/', function(data) {
+                  var options = {
+                      animation : false,
+                      pointDotRadius : 4,
+                      scaleLabel : "<%=value%> Mb"
+                  }
+                  memChart.Line(data, options);
+              });
+          }
+  
+  var cpu_ctx = $("#cpuuChart").get(0).getContext("2d");
+          var cpuChart = new Chart(cpu_ctx);
+          function cpuu_usage(){
+              $.getJSON('/info/cpuusage/', function(data) {
+                  var options = {
+                      percentageInnerCutout : 50,
+                      segmentStrokeWidth : 0
+                  }
+                  cpuChart.Doughnut(data, options);
+              });
+          }
+  
+  var trf_ctx = $("#trfChart").get(0).getContext("2d");
+          var trfChart = new Chart(trf_ctx);
+          function traffic_usage(){
+              $.getJSON('/info/gettraffic/', function(data) {
+                  var options = {
+                      animation : false,
+                      pointDotRadius : 2,
+                      scaleLabel : "<%=value%>"
+                  }
+                  trfChart.Line(data, options);
+              });
+          }
+          
+  var dsk_ctx = $("#dskChart").get(0).getContext("2d");
+          var dskChart = new Chart(dsk_ctx);
+          function disk_io(){
+              $.getJSON('/info/getdiskio/', function(data) {
+                  var options = {
+                      animation : false,
+                      pointDotRadius : 2,
+                      scaleLabel : "<%=value%>"
+                  }
+                  dskChart.Line(data, options);
+              });
+          }
+  
+  var load_ctx = $("#loadChart").get(0).getContext("2d");
+          var loadChart = new Chart(load_ctx);
+          function load_average(){
+              $.getJSON('/info/loadaverage/', function(data) {
+                  var options = {
+                      animation : false,
+                      pointDotRadius : 2,
+                      scaleLabel : "<%=value%>"
+                  }
+                  loadChart.Line(data, options);
+              });
+          }
+  
+  $(function() {
+              window.setInterval('dashboard.getProc()', {{ time_refresh_long }});
+              window.setInterval('memory_usage()', {{ time_refresh }});
+              window.setInterval('load_average()', {{ time_refresh }});
+              window.setInterval('cpuu_usage()', {{ time_refresh }});
+              window.setInterval('traffic_usage()', {{ time_refresh_net }});
+              window.setInterval('disk_io()', {{ time_refresh_net }});
+              window.setInterval('dashboard.getUptime()', {{ time_refresh_long }});
+              window.setInterval('dashboard.getDisk()', {{ time_refresh_long }});
+              window.setInterval('dashboard.getUsers()', {{ time_refresh_long }});
+              window.setInterval('dashboard.getNetstat()', {{ time_refresh_long }});
+          });
+  
+  $(function pageLoad() {
+      dashboard.getProc();
+      memory_usage();
+      load_average();
+      cpuu_usage();
+      traffic_usage();
+      disk_io();
+      dashboard.getOSname();
+      dashboard.getUptime();
+      dashboard.getHostname();
+      dashboard.getKernel();
+      dashboard.getCPUcount();
+      dashboard.getCPUtype();
+      dashboard.getDisk();
+      dashboard.getUsers();
+      dashboard.getNetstat();
+      dashboard.getIps();
+      });
+  </script>
+{% endblock %}
+
+</body>
+</html>

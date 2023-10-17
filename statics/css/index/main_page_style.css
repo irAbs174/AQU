@@ -1,0 +1,138 @@
+.imgpainpage {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.745);
+}
+
+.divimgmain {
+    padding: 10px;
+}
+
+
+/* .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: var(--red);
+  border-radius: 100%;
+} */
+
+.sliderpro {
+    padding: 20px;
+}
+
+.cardpromain {
+    background-color: rgb(255, 255, 255);
+    margin: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    text-align: center;
+    padding: 0px;
+}
+
+.cardpromain img {
+    padding: 10px;
+}
+
+.cardpromain span {
+    font-size: 14px;
+    display: inline;
+    text-align: right;
+}
+
+.tolspro button {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.tolspro span {
+    font-size: 20px;
+}
+
+.cat-main {
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.img-titr img {
+    max-width: 80%;
+}
+
+.bchs {
+    background-color: #e7e7e7;
+    width: max-content;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+.cat-main:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.568);
+
+}
+
+.cat-main h3 {
+    margin-top: 10px;
+    color: rgb(37, 37, 37);
+}
+
+.cat-main img {
+    width: 100%;
+}
+
+
+.baner-main {
+    background-color: brown;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.baner-main img {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.cardpro {
+  width: 20% !important;
+  border: 1px solid rgb(221, 221, 221);
+  text-align: center;
+  padding: 0px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .cardpro {
+    width: 33.33% !important;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .cardpro {
+    width: 50% !important;
+  }
+}
+.cardpro:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.486);
+}
+.cardpro img {
+  padding: 10px;
+}
+.cardpro span {
+  font-size: 14px;
+  display: inline;
+  text-align: right;
+}
+
+.tolspro button {
+  font-size: 12px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.tolspro span {
+  font-size: 20px;
+}
+.red-color-h:hover {
+  color: var(--red);
+}
+
+

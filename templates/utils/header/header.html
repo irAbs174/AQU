@@ -1,0 +1,322 @@
+{% load static %}
+{% load index_tag %}
+{% load jalali_tags %}
+<input type="hidden" name="TOTAL_CART_NAME" value="{{ cart_total }}">
+    <div class="container-fluid-custom-responsive col-12">
+      <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"
+            ><img
+              src="{% static 'img/logo.png' %}"
+              alt="لوگو سایت 2020black"
+          /></a>
+          <button
+            class="navbar-toggler m-responsive"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div
+            class="offcanvas offcanvas-end textbox"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header">
+              <h3 class="offcanvas-title h3" id="offcanvasNavbarLabel">
+                kikpick.com
+              </h3>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <div>
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="/"
+                      ><span class="bi bi-house-door"></span> صفحه اصلی</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="/shop"
+                      ><span class="bi bi-shop"></span> فروشگاه</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#"
+                      ><span class="bi bi-mortarboard"></span> آموزش ها</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container-fluid container-fluid-custom border-bottom">
+      <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-lg-7 col-md-8 col-sm-12 call">
+          <i id="header_date" class="bi bi-calendar3"> <span></span> </i>
+          <a href="/shop"><i>فروشگاه آنلاین</i></a>
+          <a href="/brands"><i>برند ها</i></a>
+          <a href="#"><i>تماس با ما</i></a>
+          <a href="#"><i>درباره ما</i></a>
+        </div>
+        <div class="col-xxl-6 col-xl-6 col-lg-5 col-md-4 col-sm-12 soshalmedia">
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""> <i class="bi bi-whatsapp"></i></a>
+          <a href=""> <i class="bi bi-telegram"></i></a>
+          <a href=""> <i class="bi bi-twitter"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid container-fluid-custom header3 border-bottom">
+      <div class="row">
+ <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-9 col-5 apshen">
+            <a  href="/cart" ><i class="bi bi-basket" id="CART_TOTAL">بارگیری</i> </a>
+            <a href="/accounts/dashboard#list-favorites1"><i class="bi bi-heart">علاقه مندی</i></a>
+            <a href="/cart/comparison"><i class="bi bi-arrow-left-right">مقایسه</i></a>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'dashboard' %}"><i class="bi bi-person">حساب کاربری </i></a>
+            {% else %}
+            <a href="{% url 'login_or_signup' %}"><i class="bi bi-person"> ورود / ثبت نام </i></a>
+            {% endif %} 
+      </div>        <div
+          class="col-xxl-4 col-xl-4 colp-lg-4 col-md-4 col-sm-1 col-2 search3"
+        >
+            <input
+              id="search_input"
+              class="searchnox rSearch"
+              type="search"
+              placeholder="جستجو"
+              aria-label="Search"
+            />
+            <button id="search_product" class="searchnox red-b-color bi bi-search mSearch" type="button">
+        </div>
+        <div
+          class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 col-5 logosite"
+        >
+          <a href="#">
+            <img
+              src="http://kikpick.com/media/images/kikpick.original.png"
+              alt="لوگو سایت فروشگاه اینترنتی کیک پیک"
+              class="logo text-center"
+          /></a>
+        </div>
+      </div>
+    </div>
+<nav class="container-fluid container-fluid-custom border-bottom">
+      <div class="row">
+        <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2">
+          <!-- Example single danger button -->
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-danger dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              دسته بندی ها
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/category/products">دسته بندی محصولات</a></li>
+              <li><a class="dropdown-item" href="/category/posts">دسته بندی  مقالات</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item red-color" href="/shop">همه محصولات</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-xxl-8 col-xl-8 col-lg-8 col-md-8 col-sm-8">
+          <div class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <div class="navbar-collapse">
+                <ul class="navbar-nav menusite">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="https://kikpick.com/">
+                      صفحه اصلي</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/brands">
+                      برند ها</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/shop">
+                      فروشگاه</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">
+                      خرید اقساطی
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/blog">
+                    مقالات 
+                    </a>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      اطلاعات سايت
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><span class="bi bi-person-rolodex"></span> تماس با
+                          ما</a
+                        >
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          ><span class="bi bi-person-rolodex"></span> تماس با
+                          ما</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  {% if request.user.is_staff %}
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      مدیریت
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="/UNIQUEADMINISTRATOR174"
+                          ><span class="bi bi-person-rolodex"></span>پنل فروش</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="/UNIQUEDEVELOPER174"
+                          ><span class="bi bi-person-rolodex"></span>پنل توسعه دهنده</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="/UNIQUETRAFFIC174"
+                          ><span class="bi bi-person-rolodex"></span>ترافیک</a>
+                      </li>
+                    </ul>
+                  </li>
+                  {% endif %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 buttonpopup">
+          <a href="/last_offers"><button class="percent">
+            <span class="bi bi-percent"></span> تخفیف های امروز
+          </button></a>
+        </div>
+      </div>
+    </nav>    
+        <!-- منو اسکرول -->
+    <div class=" menuscrol">
+      <nav class="container-fluid container-fluid-custom">
+        <div class="row">
+          <div
+            class="col-xxl-1 col-xl-1 col-lg-1 col-md-1 col-sm-1 logositesco"
+          >
+            <a href="https://kikpick.com/">
+              <img
+                src="http://kikpick.com/media/images/kikpick.original.png"
+                alt="لوگو سایت فروشگاه اینترنتی کیک پیک"
+                class="logosco text-center"
+            /></a>
+          </div>
+          <div class="col-xxl-5 col-xl-5 col-lg-5">
+            <div class="navbar navbar-expand-lg">
+              <div class="container-fluid">
+                <div class="navbar-collapse">
+                <ul class="navbar-nav menusite">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="https://kikpick.com/">
+                      صفحه اصلي</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/brands">
+                      برند ها</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/shop">
+                      فروشگاه</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">
+                      خرید اقساطی
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/blog">
+                    مقالات 
+                    </a>
+                  </li>
+                </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-3 col-xl-3 col-lg-3 search3sco">
+              <input id="search_input2" class="searchnoxsco" type="search" placeholder="جستجو" aria-label="Search"/>
+              <button id="search_product" onclick="resp_search();" class="searchnoxsco red-b-color bi bi-search mSearch" type="button"/>
+          </div>
+          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-2 col-sm-2 apshensco mt-2">
+            {% if request.user.is_authenticated %}
+            <a  href="/cart" ><i class="bi bi-basket"> {{cart_total}} </i> </a>
+            {% else %}
+            <a href="/cart"> <i class="bi bi-basket"> 0 </i></a>
+            {% endif %}
+            <a href="/accounts/dashboard#list-favorites1"><i class="bi bi-heart"></i></a>
+            <a href="/cart/comparison"><i class="bi bi-arrow-left-right"></i></a>
+            {% if request.user.is_authenticated %}
+            <a href="{% url 'dashboard' %}"><i class="bi bi-person"> </i></a>
+            {% else %}
+            <a href="{% url 'login_or_signup' %}"><i class="bi bi-person">  </i></a>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
+    </div>
+    <!-- منو اسکرول -->
+    <script src="{% static 'js/utils/header.js' %}"></script>
+    <script src="https://unpkg.com/jalali-moment/dist/jalali-moment.browser.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static 'js/utils/header.js' %}"></script>
+    <script>
+      const inputField = document.getElementById("search_input");
+      const clickButton = document.getElementById("search_product");
+      inputField.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          clickButton.click();
+        }
+      });
+    </script>

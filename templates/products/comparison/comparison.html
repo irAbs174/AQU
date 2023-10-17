@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{% block TITLE %}مقایسه محصولات{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block CONTENT %}
+<header class="headerblog">
+    <div class="h1divhead">
+      <h1 class="blogh1 white-color">مقایسه محصولات</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="row">
+      {% for item in comparison_items %}
+      <div class="col-6">
+        {% if item.product_title1 %}
+        <div class="cardprocomparison">
+          <img src="{{ item.image1 }}" class="card-img-top" alt="{{item.product_title1}}" />
+          <div class="card-body">
+            <h3 class="card-title h4">
+              <a href="" class="black-color">{{ item.product_title1 }}</a>
+            </h3>
+            <span class="red-color">{{ item.price1 }}<span>تومان</span></span>
+            <hr />
+            <div class="tolspro">
+              <span class="bi bi-heart" onclick="add_favourite('{{item.product_id1}}','{{item.slug1}}','{{item.product_title1}}','{{item.image1}}','0', '0', '0')"></span>
+              <a href="/shop/{{item.slug1}}"><button type="submit" class="btn btn-danger addtocard">
+                مشاهده و خرید
+              </button></a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-6">
+        {% if item.product_title2 %}
+        <div class="cardprocomparison">
+          <img src="{{item.image2}}" class="card-img-top" alt="{{item.product_title2}}" />
+          <div class="card-body">
+            <h3 class="card-title h4">
+              <a href="" class="black-color">{{ item.product_title2 }}</a>
+            </h3>
+            <span class="red-color">{{item.price2}}<span>تومان</span></span>
+            <hr />
+            <div class="tolspro">
+              <span class="bi bi-heart" onclick="add_favourite('{{item.product_id2}}','{{item.slug2}}','{{item.product_title2}}','{{item.image2}}','0', '0', '0')"></span>
+              <a href="/shop/{{item.slug2}}"><button type="submit" class="btn btn-danger addtocard">
+                مشاهده و خرید
+              </button></a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      {% if item.product_title1 and item.product_title2 %}
+      <table class="comparisonlist col-10 container">
+        <tr>
+          <th colspan="2">برند:</th>
+        </tr>
+        <tr>
+          <td>{{item.brand1}}</td>
+          <td>{{item.brand2}}</td>
+        </tr>
+        <tr>
+          <th colspan="2">نوع:</th>
+        </tr>
+        <tr>
+          <td>{{item.product_type1}}</td>
+          <td>{{item.product_type2}}</td>
+        </tr>
+        <tr>
+          <th colspan="2">جنس:</th>
+        </tr>
+        <tr>
+          <td>{{item.product_jense1}}</td>
+          <td>{{item.product_jense2}}</td>
+        </tr>
+        <tr>
+          <th colspan="2">وزن:</th>
+        </tr>
+        <tr>
+          <td>{{item.product_wight1}}</td>
+          <td>{{item.product_wight2}}</td>
+        </tr>
+        <tr>
+          <th colspan="2">ابعاد خارجی:</th>
+        </tr>
+        <tr>
+          <td>{{item.product_abad1}}</td>
+          <td>{{item.product_abad2}}</td>
+        </tr>
+        <tr>
+          <th colspan="2">سایز:</th>
+        </tr>
+        <tr>
+          <td>{{item.product_size1}}</td>
+          <td>{{item.product_size2}}</td>
+        </tr>
+        <tr>
+          <th colspan="2">گارانتی:</th>
+        </tr>
+        <tr>
+          <td>{{item.product_garr1}}</td>
+          <td>{{item.product_garr2}}</td>
+        </tr>
+      </table>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% block JS %}
+<script src="js/products/comparison.js"></script>
+<script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+{% endblock %}
+{% endblock %}

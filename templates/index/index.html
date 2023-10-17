@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block HEADING %}
+<meta name="description" content="فروشگاه اینترنتی کیک پیک(kik pick) / فقط انتخاب کن(just pick it)" />
+<meta name="keywords" content="فروشگاه کیک پیک, kik pick, کلمه کلیدی ۳" />
+{% endblock %}
+{% block TITLE %}kik pick / کیک پیک{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+<link rel="stylesheet" href="{% static 'css/index/main_page.css' %}" />
+{% endblock %}
+{% block CONTENT %}
+    <main>
+        <header class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-sm-7 col-12 divimgmain">
+                    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active" data-bs-interval="3000">
+                                <img src="https://kikpick.com/media/images/sliderhead.original.jpg" class="d-block w-100 imgpainpage" alt="..." />
+                            </div>
+                            <div class="carousel-item" data-bs-interval="3000">
+                                <img src="https://kikpick.com/media/images/sliderhead1.original.jpg" class="d-block w-100 imgpainpage" alt="..." />
+                            </div>
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-sm-5  divimgmain">
+                    <img src="https://kikpick.com/media/images/slider1-1.original.jpg" class="imgpainpage img-fluid" alt="..." />
+                </div>
+                <div class="col-sm-4 col-6 divimgmain">
+                    <img src="https://kikpick.com/media/images/slider2.original.jpg" class="imgpainpage img-fluid" alt="..." />
+                </div>
+                <div class="col-sm-4 col-6 divimgmain">
+                    <img src="https://kikpick.com/media/images/slider3.original.jpg" class="imgpainpage img-fluid" alt="..." />
+                </div>
+                <div class="col-sm-4 divimgmain">
+                    <img src="https://kikpick.com/media/images/slider4.original.jpg" class="imgpainpage img-fluid" alt="..." />
+                </div>
+            </div>
+        </header>
+        <section class="container-fluid mt-3">
+            <!-- شروع دکمه ها -->
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button
+                class="nav-link active red-color red-color-h"
+                id="nav-home-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-home"
+                type="button"
+                role="tab"
+                aria-controls="nav-home"
+                aria-selected="true"
+              >
+                تخفیف شگفت انگیز
+              </button>
+              <button
+                class="nav-link red-color red-color-h"
+                id="nav-contact-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#nav-contact"
+                type="button"
+                role="tab"
+                aria-controls="nav-contact"
+                aria-selected="false"
+              >
+                محصولات جدید
+              </button>
+            </div>
+            <!-- پایان دکمه ها -->
+            <!-- شروع محتوای هر دکمه -->
+            <div class="tab-content" id="nav-tabContent">
+              
+              
+              <div
+                class="tab-pane fade"
+                id="nav-contact"
+                role="tabpanel"
+                aria-labelledby="nav-contact-tab"
+                tabindex="0"
+              >
+                <div class="container-fluid">
+                   <div >
+                  <div class="row text-center" id="PRODUCT">
+                   </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade show active"
+                id="nav-home"
+                role="tabpanel"
+                aria-labelledby="nav-home-tab"
+                tabindex="0"
+              >
+                <div class="container-fluid">
+                    <div>
+                  <div class="row text-center" id="PRODUCT_OFFER">
+                </div>
+              </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- پایان محتوای هر دکمه -->
+          </section>
+        <section class="container-fluid mt-5">
+            <div class="row row-cols-2 row-cols-sm-3 row-cols-lg-5 g-4 g-lg-3">
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p1.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p1.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p1.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p2.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p3.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p4.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p5.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+                        <a href=""><img src="https://kikpick.com/media/images/p6.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p7.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="cat-main">
+
+                        <a href=""><img src="https://kikpick.com/media/images/p8.original.jpg" alt="">
+                            <h3 class="h4 bchs">کوله پشتی لپ تاپ</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+        </section>
+        <section class="container-fluid mt-3">
+            <div class="row">
+                <div class="col-6 col-sm-4 col-md-4 col-lg-4  p-2">
+                    <div class="baner-main"> <img src="https://kikpick.com/media/images/shopping-header-e1645291931520.original.jpg" alt="">
+                    </div>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4  col-lg-4  p-2">
+                    <div class="baner-main"> <img src="https://kikpick.com/media/images/shopping-header-e1645291931520.original.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-4 col-md-4 col-lg-4  p-2">
+                    <div class="baner-main"> <img src="https://kikpick.com/media/images/shopping-header-e1645291931520.original.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-lg-6 p-2">
+                    <div class="baner-main"> <img src="https://kikpick.com/media/images/shopping-header-e1645291931520.original.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-6 col-sm-6 col-lg-6 col-12 p-2">
+                    <div class="baner-main">
+                        <img src="https://kikpick.com/media/images/shopping-header-e1645291931520.original.jpg" alt="">
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+    </main>
+    {% block JS %}
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"
+    integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="{% static 'js/index/main_page.js' %}"></script>
+    <script src="{% static 'js/index/index.js' %}"></script>
+    
+
+    {% endblock %}
+{% endblock %}

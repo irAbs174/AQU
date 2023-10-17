@@ -1,0 +1,31 @@
+#IMPORTAND NOTES:
+	#1.ASK RIAL OUR TOMAN FOR SEND AMOUNT FOR FADAX
+	#2.REPLACE REAL FADAX TOKEN
+
+
+import requests
+
+# Send a GET request to retrieve JSON data
+response = requests.get('https://api.example.com/user/1')
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Parse the JSON response
+    response_data = response.json()
+
+    # Access the top-level values
+    name = response_data['name']
+    age = response_data['age']
+    email = response_data['email']
+
+    # Access the nested value
+    data_status = response_data['data']['status']
+
+    # Process the data
+    print('Name:', name)
+    print('Age:', age)
+    print('Email:', email)
+    print('Data Status:', data_status)
+else:
+    # Request was not successful
+    print('Request failed with status code:', response.status_code)

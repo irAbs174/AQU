@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block HEADING %}
+<meta name="description" content="{{ page.description }}" />
+<meta name="keywords" content="{{ page.keywords }}" />
+{% endblock %}
+{% block TITLE %}{{ page.title }}{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom_page/custom_page.css' %}">
+{% endblock %}
+{% block CONTENT %}
+<header class="headerblog">
+    <div class="h1divhead">
+      <h1 class="blogh1 white-color">{{ page.title }}</h1>
+    </div>
+  </header>
+  <main class="container-fluid">
+    <div class="row">
+      <section class="col-xxl-9 col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+        {{ page.content | safe }}
+      </section>
+    </div>
+  </main>
+{% block JS %}
+<script src="{% static 'js/custom_page/custom_page.js' %}"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+crossorigin="anonymous"
+></script>
+{% endblock %}
+{% endblock %}

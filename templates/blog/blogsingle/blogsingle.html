@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailimages_tags %}
+{% load wagtailcore_tags %}
+{% block HEADING %}
+<meta name="description" content="{{page.description}}" />
+<meta name="keywords" content="{{page.keywords}}" />
+{% endblock %}
+{% block TITLE %}مقاله تکی{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block CONTENT %}
+    <header id="HEADER_CONTENT" class="headerblog">
+    </header>
+<input type="hidden" name="parent" value="{{page.get_parent.specific.id }}">
+    <main class="container-fluid">
+        <div class="row">
+          <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-12 col-12">
+            <ol id="POST_PUBLIC" class="breadcrumb">
+            </ol>
+            <article id="#POST_CONTENT" class="blog-post">
+              <img
+              id="img1"
+              src="/img/shopping-header-e1645291931520.jpg"
+              alt=""
+              class="mainimgpost"
+            />
+            <h1 id="h1title" class="blog-post-title mb-1 h1">عنوان اصلی مقاله</h1>
+            <div id="GOOD" class="blog-post-meta">
+              <!-- CONTEXT COME HERE FROM JS -->
+            </div>
+            <hr />
+            <p id="h2body">
+              ظاهرا محتوایی برای نمایش وجود ندارد
+            </p>
+              <div class="divshare-buttons">
+                <h4 class="h5 text-center m-1 bchs">اشتراک گذاری صفحه</h4>
+                <div class="share-buttons">
+                  <a href="#" class="telegram bi bi-telegram"></a>
+                  <a href="#" class="whatsapp bi bi-whatsapp"></a>
+                  <a href="#" class="email bi bi-envelope-at"></a>
+                  <a href="#" class="linkedin bi bi-linkedin"></a>
+                  <a href="#" class="facebook bi bi-facebook"></a>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+            <div class="position-sticky" style="top: 2rem">
+              <div class="p-4 mb-3 divasidecat">
+                <h4 class="h2 bchs">دسته بندی مقالات</h4>
+                <ul id="CATEGORY_ITEMS" class="navliststyle asidecat">
+                  {% for cat in category %}
+                  <li class="bbs1px"> 
+                    <a href="/category/posts/{{cat.id}}" class="black-color ahover">{{cat.title}}</a> 
+                    <span id="{{cat.id}}" class="counter"></span></li>
+                    {% endfor %}
+                </ul>
+              </div>
+              <div class="p-4 divasidecat">
+                <h4 class="h2 bchs">آخرین مقالات</h4>
+                <ol id="NEW_POSTS" class="asidecat">
+                  <!-- CONTEXT COME HERE FROM JS -->
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+    </main>
+{% block JS %}
+<script>
+$(document).ready(function() {
+  function loadPages() {
+    var currentPath = window.location.pathname;
+    var slug = currentPath.split('/').filter(Boolean).pop();
+  $.getJSON(`/UNIQUEAPI174/pages/?slug=${slug}`, function(data) {
+    var blogPages = data.items[0];
+    $.getJSON(`/UNIQUEAPI174/pages/${blogPages.id}`, function(postsData) {
+      let post = postsData;
+      document.title = post.title;
+      var postHeaderContent = `<div class="h1divhead">
+        <h1 class="blogh1 white-color">${post.title}</h1> </div>`;
+
+      var postPublicContent = `<li><a href="https://kikpick.com" class="text-light-emphasis">2020 Black</a></li>
+        <li><a href="/category/posts/${post.collection.id}" class="text-light-emphasis">${post.collection.title}</a></li>
+        <li><a href="${post.meta.html_url}" class="text-light-emphasis">${post.title}</a></li>`;
+
+      var postContent = `<span class="bi bi-person">2020Black</span>
+            <span class="bi bi-folder2-open">${post.collection.title}</span>
+            <span class="bi bi-calendar3">${post.jpub}</span>`;
+
+      var IMG1 = `<img
+            id="img1"
+            src="${post.image.url}"
+            alt="${post.image.alt}"
+            class="mainimgpost"
+          />`;
+
+      var H1TITLE = `<h1 id="h1title" class="blog-post-title mb-1 h1">${post.title}</h1>`;
+
+      var H2BODY = `<P id="h2body">${post.body}</P>`;
+
+      $('#HEADER_CONTENT').append(postHeaderContent);
+      $('#POST_PUBLIC').append(postPublicContent);
+      $('#GOOD').append(postContent);
+      $('#img1').replaceWith(IMG1);
+      $('#h1title').replaceWith(H1TITLE);
+      $('#h2body').replaceWith(H2BODY);
+    });
+  }
+)};
+function loadNewPosts() {
+$.getJSON(`/UNIQUEAPI174/pages/?type=blog.BlogPage&order=-first_published_at`, function(data) {
+  for (var i = 0; i < 5; i++) {
+    if (i >= data.items.length) {
+      break;
+    }
+
+    var newPostsData = data.items[i];
+    var newPostsToPage = `<li class="bbs1px">
+      <a href="${newPostsData.meta.html_url}" class="black-color ahover">${newPostsData.title}</a></li>`;
+    $('#NEW_POSTS').append(newPostsToPage);
+  }
+});
+}
+function cat_count() {
+  let parent = $('input[name=parent]').val();
+  $.getJSON(`/UNIQUEAPI174/pages/?child_of=${parent}`, function(blog_type) {
+    let childs = [];
+    let cat_id = new Set();
+
+    for (let c = 0; c < blog_type.items.length; c++) {
+      childs.push(blog_type.items[c].id);
+    }
+
+    let requests = [];
+    for (let q = 0; q < childs.length; q++) {
+      requests.push(
+        $.getJSON(`/UNIQUEAPI174/pages/${childs[q]}`, function(posts) {
+          cat_id.add(posts.collection.id.toString());
+        })
+      );
+    }
+
+    $.when.apply($, requests).then(function() {
+      let request_total = Array.from(cat_id);
+      for (let x = 0; x < request_total.length; x++) {
+        console.log('total => ' + request_total[x]);
+        $.ajax({
+          url: '/category/blog_total',
+          type: 'POST',
+          data: {
+            'request_total': request_total[x],
+          },
+          success: function(response) {
+            if (response.success) {
+              console.log('success! ' + response.status);
+              document.getElementById(request_total[x]).innerHTML = response.status;
+            }
+          }
+        });
+      }
+    });
+  });
+}
+
+    loadPages();
+    loadNewPosts();
+    cat_count();
+});
+  </script>
+    <script src="{% static 'js/blog/blogsingel.js' %}"></script>
+    {% endblock %}
+{% endblock %}

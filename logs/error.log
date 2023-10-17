@@ -1,0 +1,215 @@
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 23:42:25 2023] ***
+compiled with version: 9.4.0 on 18 July 2023 18:11:51
+os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
+nodename: fcicrayanfarid
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /
+detected binary path: /var/www/kikpick/9d592a7af17599c8ccba2c196f49a863_venv/bin/uwsgi
+setgid() to 1002
+setuid() to 1001
+chdir() to /var/www/kikpick
+your processes number limit is 39636
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:41491 (port auto-assigned) fd 3
+Python version: 3.9.10 (main, Jul 18 2023, 15:43:04)  [GCC 9.4.0]
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 23:42:25 2023] ***
+compiled with version: 9.4.0 on 18 July 2023 18:11:51
+os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
+nodename: fcicrayanfarid
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /
+detected binary path: /var/www/kikpick/9d592a7af17599c8ccba2c196f49a863_venv/bin/uwsgi
+setgid() to 1002
+setuid() to 1001
+chdir() to /var/www/kikpick
+your processes number limit is 39636
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 23:42:25 2023] ***
+compiled with version: 9.4.0 on 18 July 2023 18:11:51
+os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
+nodename: fcicrayanfarid
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /
+detected binary path: /var/www/kikpick/9d592a7af17599c8ccba2c196f49a863_venv/bin/uwsgi
+setgid() to 1002
+setuid() to 1001
+chdir() to /var/www/kikpick
+your processes number limit is 39636
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+Python main interpreter initialized at 0x55dafd9fe750
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 5 seconds on interpreter 0x55dafd9fe750 pid: 24433 (default app)
+mountpoint  already configured. skip.
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 24433)
+spawned uWSGI worker 1 (pid: 24534, cores: 2)
+spawned uWSGI http 1 (pid: 24536)
+Tue Jul 18 23:45:23 2023 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Jul 18 23:45:23 2023 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 23:45:38 2023] ***
+compiled with version: 9.4.0 on 18 July 2023 18:11:51
+os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
+nodename: fcicrayanfarid
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /
+detected binary path: /var/www/kikpick/9d592a7af17599c8ccba2c196f49a863_venv/bin/uwsgi
+setgid() to 1002
+setuid() to 1001
+chdir() to /var/www/kikpick
+your processes number limit is 39636
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:45343 (port auto-assigned) fd 3
+Python version: 3.9.10 (main, Jul 18 2023, 15:43:04)  [GCC 9.4.0]
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 23:45:38 2023] ***
+compiled with version: 9.4.0 on 18 July 2023 18:11:51
+os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
+nodename: fcicrayanfarid
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /
+detected binary path: /var/www/kikpick/9d592a7af17599c8ccba2c196f49a863_venv/bin/uwsgi
+setgid() to 1002
+setuid() to 1001
+chdir() to /var/www/kikpick
+your processes number limit is 39636
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+Python main interpreter initialized at 0x562791a4b780
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x562791a4b780 pid: 25068 (default app)
+mountpoint  already configured. skip.
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 25068)
+spawned uWSGI worker 1 (pid: 25165, cores: 2)
+spawned uWSGI http 1 (pid: 25167)
+Tue Jul 18 23:46:44 2023 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Jul 18 23:46:44 2023 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 23:46:49 2023] ***
+compiled with version: 9.4.0 on 18 July 2023 18:11:51
+os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
+nodename: fcicrayanfarid
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /
+detected binary path: /var/www/kikpick/9d592a7af17599c8ccba2c196f49a863_venv/bin/uwsgi
+setgid() to 1002
+setuid() to 1001
+chdir() to /var/www/kikpick
+your processes number limit is 39636
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:34999 (port auto-assigned) fd 3
+Python version: 3.9.10 (main, Jul 18 2023, 15:43:04)  [GCC 9.4.0]
+*** Starting uWSGI 2.0.21 (64bit) on [Tue Jul 18 23:46:49 2023] ***
+compiled with version: 9.4.0 on 18 July 2023 18:11:51
+os: Linux-5.4.0-153-generic #170-Ubuntu SMP Fri Jun 16 13:43:31 UTC 2023
+nodename: fcicrayanfarid
+machine: x86_64
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 8
+current working directory: /
+detected binary path: /var/www/kikpick/9d592a7af17599c8ccba2c196f49a863_venv/bin/uwsgi
+setgid() to 1002
+setuid() to 1001
+chdir() to /var/www/kikpick
+your processes number limit is 39636
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (0.0.0.0:8000).
+bind(): Address already in use [core/socket.c line 769]
+Python main interpreter initialized at 0x5555c9d40780
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166752 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 4 seconds on interpreter 0x5555c9d40780 pid: 25444 (default app)
+mountpoint  already configured. skip.
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 25444)
+spawned uWSGI worker 1 (pid: 25546, cores: 2)
+spawned uWSGI http 1 (pid: 25548)
+Tue Jul 18 23:47:49 2023 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Tue Jul 18 23:47:49 2023 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+[2023-07-18 23:57:27 +0330] [27461] [INFO] Starting gunicorn 21.1.0
+[2023-07-18 23:57:27 +0330] [27461] [INFO] Listening at: http://0.0.0.0:8000 (27461)
+[2023-07-18 23:57:27 +0330] [27461] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2023-07-18 23:57:27 +0330] [27464] [INFO] Booting worker with pid: 27464
+[2023-07-18 23:57:27 +0330] [27466] [INFO] Starting gunicorn 21.1.0
+[2023-07-19 00:08:22 +0330] [29437] [INFO] Starting gunicorn 21.1.0
+[2023-07-19 00:08:22 +0330] [29437] [INFO] Listening at: http://0.0.0.0:8000 (29437)
+[2023-07-19 00:08:22 +0330] [29437] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2023-07-19 00:08:22 +0330] [29440] [INFO] Booting worker with pid: 29440
+[2023-07-19 00:08:22 +0330] [29441] [INFO] Booting worker with pid: 29441
+[2023-07-19 00:08:22 +0330] [29442] [INFO] Booting worker with pid: 29442
+[2023-07-19 00:08:22 +0330] [29443] [INFO] Booting worker with pid: 29443
+[2023-07-19 00:08:22 +0330] [29446] [INFO] Booting worker with pid: 29446
+[2023-07-19 00:08:22 +0330] [29445] [INFO] Starting gunicorn 21.1.0
+[2023-07-19 00:19:12 +0330] [30661] [INFO] Starting gunicorn 21.1.0
+[2023-07-19 00:19:12 +0330] [30661] [INFO] Listening at: http://0.0.0.0:8000 (30661)
+[2023-07-19 00:19:12 +0330] [30661] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2023-07-19 00:19:12 +0330] [30664] [INFO] Booting worker with pid: 30664
+[2023-07-19 00:19:12 +0330] [30665] [INFO] Booting worker with pid: 30665
+[2023-07-19 00:19:12 +0330] [30666] [INFO] Booting worker with pid: 30666
+[2023-07-19 00:19:12 +0330] [30669] [INFO] Booting worker with pid: 30669
+[2023-07-19 00:19:13 +0330] [30668] [INFO] Starting gunicorn 21.1.0
+[2023-07-19 00:19:37 +0330] [30874] [INFO] Starting gunicorn 21.1.0
+[2023-07-19 00:19:37 +0330] [30874] [INFO] Listening at: http://0.0.0.0:8000 (30874)
+[2023-07-19 00:19:37 +0330] [30874] [INFO] Using worker: geventwebsocket.gunicorn.workers.GeventWebSocketWorker
+[2023-07-19 00:19:37 +0330] [30877] [INFO] Booting worker with pid: 30877
+[2023-07-19 00:19:37 +0330] [30892] [INFO] Booting worker with pid: 30892
+[2023-07-19 00:19:38 +0330] [30893] [INFO] Booting worker with pid: 30893
+[2023-07-19 00:19:38 +0330] [30894] [INFO] Booting worker with pid: 30894
+[2023-07-19 00:19:38 +0330] [30891] [INFO] Starting gunicorn 21.1.0

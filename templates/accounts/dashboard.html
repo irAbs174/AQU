@@ -1,0 +1,453 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{% block TITLE %}پنل کاربری{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block CONTENT %}
+{% csrf_token %}
+<header class="headerblog">
+  <div class="h1divhead">
+    <h1 class="blogh1 white-color">پنل کاربری</h1>
+  </div>
+</header>
+<div class="container-fluid">
+  <section>
+    <div class="row">
+      <div
+        class="col-xxl-3 col-xl-3 col-lg-3 col-md-3 col-sm-4 col-12 mb-3"
+      >
+        <div class="dropdown text-center">
+          {% if request.user.first_name %}
+          <span>سلام</span>
+          <span class="bi bi-heart-fill text-danger"></span>
+          <strong>{{request.user.first_name}}</strong>
+          <span>عزیز</span>
+          {% else %}
+          <script>
+            Swal.fire({
+              icon: "info",
+              title: 'کاربر گرامی لطفا اطلاعات حساب کاربری خود را تکمیل کنید',
+              showConfirmButton: false,
+              timer: 3000,
+            });
+          </script>
+          {% endif %}
+        </div>
+        <hr />
+        <div class="list-group" id="list-tab" role="tablist">
+          <a
+            class="list-group-item list-group-item-action active"
+            id="list-counter-list"
+            data-bs-toggle="list"
+            href="#list-counter"
+            role="tab"
+            aria-controls="list-counter"
+            >پیشخوان</a
+          >
+          <a
+            class="list-group-item list-group-item-action"
+            id="list-orders-list"
+            data-bs-toggle="list"
+            href="#list-orders"
+            role="tab"
+            aria-controls="list-orders"
+            >سفارش ها</a
+          >
+          <a
+            class="list-group-item list-group-item-action"
+            id="list-addresses-list"
+            data-bs-toggle="list"
+            href="#list-addresses"
+            role="tab"
+            aria-controls="list-addresses"
+            >آدرس ها</a
+          >
+          <a
+            class="list-group-item list-group-item-action"
+            id="list-details-list"
+            data-bs-toggle="list"
+            href="#list-details"
+            role="tab"
+            aria-controls="list-details"
+            >جزئیات حساب</a
+          >
+          <a
+            class="list-group-item list-group-item-action"
+            id="list-favorites1-list"
+            data-bs-toggle="list"
+            href="#list-favorites1"
+            role="tab"
+            aria-controls="list-favorites1"
+            >علاقه مندی ها</a
+          >
+          <a
+            href="{% url 'logout' %}"
+            class="nav-link link-body-emphasis text-danger list-group-item"
+          >
+            خروج
+          </a>
+        </div>
+      </div>
+
+      <div class="col-xxl-9 col-xl-9 col-lg-9 col-md-9 col-sm-8 col-12">
+        <div class="tab-content" id="nav-tabContent">
+          <div
+            class="tab-pane fade show active"
+            id="list-counter"
+            role="tabpanel"
+            aria-labelledby="list-counter-list"
+          >
+            <div class="row">
+              <div class="boxpanel">
+                <a href="#list-orders" class="link-body-emphasis">
+                  <span class="bi bi-cart-check"> </span>
+                  <h3 class="h5">سفارش ها</h3>
+                </a>
+              </div>
+              <div class="boxpanel">
+                <a href="#list-addresses" class="link-body-emphasis">
+                  <span class="bi bi-geo-alt"> </span>
+                  <h3 class="h5">آدرس ها</h3>
+                </a>
+              </div>
+              <div class="boxpanel">
+                <a href="#list-favorites1" class="link-body-emphasis">
+                  <span class="bi bi-heart"> </span>
+                  <h3 class="h5">علاقه مندی ها</h3>
+                </a>
+              </div>
+              <div class="boxpanel">
+                <a href="/shop" class="link-body-emphasis">
+                  <span class="bi bi-basket"> </span>
+                  <h3 class="h5">فروشگاه</h3>
+                </a>
+              </div>
+              <div class="boxpanel">
+                <a href="/blog" class="link-body-emphasis">
+                  <span class="bi bi-journal-bookmark"> </span>
+                  <h3 class="h5">وبلاگ</h3>
+                </a>
+              </div>
+              <div class="boxpanel">
+                <a href="{% url 'logout' %}" class="link-body-emphasis">
+                  <span class="bi bi-box-arrow-left"> </span>
+                  <h3 class="h5">خروج</h3>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="list-orders"
+            role="tabpanel"
+            aria-labelledby="list-orders-list"
+          >
+            <!-- <div class="row">
+
+            </div> -->
+            <div class="bd-example-snippet bd-code-snippet text-center">
+              <div class="bd-example m-0 border-0">
+                {% if order_items %}
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">محصول</th>
+                      <th scope="col">تعداد</th>
+                      <th scope="col">رنگ</th>
+                      <th scope="col">تاریخ ثبت</th>
+                      <th scope="col">وضعیت پرداخت</th>
+                      <th scope="col">استرداد محصول</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for item in order_items %}
+                    <tr>
+                      <td>{{ item.product }}</td>
+                      <td>{{ item.number }}</td>
+                      <td><div class="selected-color" style="background-color: {{item.color}};"></div></td>
+                      <td>{{ item.jpub }}</td>
+                      <td>{% if item.status == 0 %}در حال پردازش{% elif item.status == 1 %}تکمیل شده{% elif item.status == 2 %}استرداد{% elif item.status == 3 %}لغو شده{% elif item.status == 4 %}در انتظار پرداخت{% endif %}</td>
+                      <td><a href="tel:09906686338">تماس مستقیم</a></td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                {% else %}
+                <a href="/shop"><h4 style="text-align: center;">هم اکنون اولین سفارش خود را ثبت کنید !</h4></a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="list-addresses"
+            role="tabpanel"
+            aria-labelledby="list-addresses-list"
+          >
+            <h4 class="mb-3">آدرس خود را وارد کنید</h4>
+            <div class="needs-validation" novalidate="">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="firstName" class="form-label">نام</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstName"
+                    placeholder="{% if request.user.first_name %}{{request.user.first_name}}{% endif %}"
+                    required
+                  />
+                  <div div class="invalid-feedback">
+                    يرجى إدخال اسم أول صحيح.
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="lastName" class="form-label"
+                    >نام خانوادگی</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder="{% if request.user.last_name %}{{request.user.last_name}}{% endif %}"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    يرجى إدخال اسم عائلة صحيح.
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="telnum" class="form-label">شماره تماس</label>
+                  <div class="input-group has-validation">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="telnum"
+                      placeholder="{{request.user.phoneNumber}}"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      اسم المستخدم الخاص بك مطلوب.
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="address" class="form-label">آدرس دقیق</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    placeholder="{% for customer in customer_items %}{% if customer.address %}{{customer.address}}{% endif %}{% endfor %}"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    يرجى إدخال عنوان الشحن الخاص بك.
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="address2" class="form-label">
+                    زنگ ، پلاک
+                    <span class="text-body-secondary"
+                      >(اختياري)</span
+                    ></label
+                  >
+                  <input type="text" class="form-control" id="address2" placeholder="{% for customer in customer_items %}{% if customer.pelak %}{{customer.pelak}}{% endif %}{% endfor %}" />
+                </div>
+                <div class="col-sm-6">
+                  <label for="ostan" class="form-label">استان</label>
+                  <input type="text" class="form-control" id="ostan" placeholder="{% for customer in customer_items %}{% if customer.ostan %}{{customer.ostan}}{% endif %}{% endfor %}" />
+                  <div class="invalid-feedback">يرجى اختيار بلد صحيح.</div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="shahr" class="form-label">شهر/شهرستان</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="shahr"
+                    placeholder="{% for customer in customer_items %}{% if customer.city %}{{customer.city}}{% endif %}{% endfor %}"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    يرجى اختيار اسم منطقة صحيح.
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label for="zip" class="form-label">کدپستی</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="zip"
+                    placeholder="{% for customer in customer_items %}{% if customer.zip_zode %}{{customer.zip_zode}}{% endif %}{% endfor %}"
+                    required
+                  />
+                  <div class="invalid-feedback">الرمز البريدي مطلوب.</div>
+                </div>
+              </div>
+              <br />
+              <button class="btn red-b-color white-color" type="submit" onclick="get_address()">
+                بروزرسانی اطلاعات
+              </button>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="list-details"
+            role="tabpanel"
+            aria-labelledby="list-details-list"
+          >
+            <div class="row g-3 needs-validation" novalidate>
+              <div class="col-sm-6">
+                <label for="validationCustom01" class="form-label"
+                  >نام
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom01"
+                  placeholder="{% if request.user.first_name %}{{request.user.first_name}}{% endif %}"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="validationCustom02" class="form-label"
+                  >نام خانوادگی
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom02"
+                  placeholder="{% if request.user.last_name %}{{request.user.last_name}}{% endif %}"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="validationCustom03" class="form-label">
+                  شماره تماس
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationCustom03"
+                  placeholder="{{request.user.phoneNumber}}"
+                  readonly
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-sm-6">
+                <label for="validationCustom04" class="form-label"
+                  >پست الکترونیک
+                  <span class="text-body-secondary"
+                  >(اختياري)</span
+                ></label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="validationCustom04"
+                  placeholder="{% if request.user.email%}{{request.user.email}}{% endif %}"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <label for="validationCustom07" class="form-label"
+                  >رمزعبور فعلی</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="validationCustom07"
+                />
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <label for="validationCustom08" class="form-label"
+                  >رمزعبور جدید</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="validationCustom08"
+                />
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <label for="validationCustom09" class="form-label">
+                  تکرار رمزعبور جدید</label
+                >
+
+                <input
+                  type="password"
+                  class="form-control"
+                  id="validationCustom09"
+                />
+                <div class="invalid-feedback">
+                  Please provide a valid city.
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn red-b-color white-color" onclick="update_user()">
+                  بروزرسانی اطلاعات
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="list-favorites1"
+            role="tabpanel"
+            aria-labelledby="list-favorites1-list"
+          >
+            <div class="row">
+            {% for item in favourite_items %}
+              <div class="cardpro" style="width: 18rem">
+                <img
+                  src="{{ item.image }}"
+                  class="card-img-top"
+                  alt="{{ item.product_title }}"
+                />
+                <div class="card-body">
+                  <h3 class="card-title h4">
+                    <a href="" class="black-color">{{ item.product_title }}</a>
+                  </h3>
+                  <span class="red-color">{{ item.price }}<span>تومان</span></span>
+                  <hr />
+                  <div class="tolspro">
+                    <span onclick="add_favourite('{{item.product_id}}','{{item.slug}}','{{item.product_title}}','{{item.image}}','0', '0', '0');location.reload(true)" class="bi bi-heart"></span>
+                    <a href="/shop/{{ item.slug }}"><button type="submit" class="btn btn-danger addtocard">
+                      مشاهده و خرید
+                    </button></a>
+                    <span class="bi bi-arrow-left-right" onclick="add_comparison('{{item.product_id}}','{{item.slug}}','{{item.product_title}}','{{item.image}}','0', '0', '0', '0')"></span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% block JS %}
+<script src="{% static 'js/accounts/dashboard.js' %}"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+  crossorigin="anonymous"
+></script>
+{% endblock %}
+{% endblock %}

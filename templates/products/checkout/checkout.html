@@ -1,0 +1,156 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{% block TITLE %}پرداخت نهایی{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block CONTENT %}
+{% csrf_token %}
+<header class="headerblog">
+    <div class="h1divhead">
+        <h1 class="blogh1 white-color">تسویه حساب</h1>
+    </div>
+</header>
+<div class="container">
+    <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-danger">محصولات شما</span>
+                <span class="badge bg-danger rounded-pill">{{ cart_count }}</span>
+            </h4>
+            <ul class="list-group mb-3 w-100">
+                {% for product in cart_items %}
+                <li class="list-group-item d-flex justify-content-between lh-sm w-100">
+                    <div>
+                        <h6 class="my-0">{{ product.product_title }}</h6>
+                    </div>
+                    <span class="text-body-secondary">{{ product.price }}</span>
+                </li>
+                {% empty %}
+                <li class="list-group-item d-flex justify-content-between lh-sm w-100">
+                    <div>
+                        <h6 class="my-0">محصولی برای خرید انتخاب نکردید</h6>
+                    </div>
+                </li>
+                {% endfor %}
+                <li class="list-group-item d-flex justify-content-between w-100">
+                    <span>مبلغ کل</span>
+                    <strong id="CART_P_TOTAL">در حال بارگیری</strong>
+                </li>
+            </ul>
+            <form class="card p-2">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="افزودن کد تخفیف" />
+                    <button type="submit" class="btn btn-danger">اعمال</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-7 col-lg-8">
+            <h4 class="mb-3">آدرس خود را وارد کنید</h4>
+            <div class="needs-validation" novalidate="">
+                <div class="row g-3">
+                    <div class="col-sm-4">
+                        <label for="firstName" class="form-label">نام</label>
+                        <input type="text" class="form-control" id="firstName" value="{% if request.user.first_name %}{{request.user.first_name}}{% endif %}" required />
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="lastName" class="form-label">نام خانوادگی</label>
+                        <input type="text" class="form-control" id="lastName" value="{% if request.user.last_name %}{{request.user.last_name}}{% endif %}" required />
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="tel" class="form-label">تلفن همراه</label>
+                        <div class="input-group has-validation">
+                            <input type="tel" class="form-control" value="{{request.user.phoneNumber}}" id="tel" readonly />
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="email" class="form-label">ایمیل
+              <span class="text-body-secondary">(اختیاری)</span></label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              value="{% if request.user.email %}{{request.user.email}}{% endif %}"
+              placeholder="you@example.com"
+            />
+          </div>
+
+          <div class="col-sm-4">
+            <label for="State" class="form-label">استان</label>
+                        <input type="text" class="form-control" id="State" value="{% for customer in customer_items %}{% if customer.ostan %}{{customer.ostan}}{% endif %}{% endfor %}" required />
+                    </div>
+
+                    <div class="col-sm-4">
+                        <label for="City" class="form-label">شهر / شهرستان</label>
+                        <input type="text" class="form-control" id="City" value ="{% for customer in customer_items %}{% if customer.city %}{{customer.city}}{% endif %}{% endfor %}" required />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="nationalcode" class="form-label">کدملی</label>
+                        <input type="text" class="form-control" id="nationalcode" value="{% for customer in customer_items %}{% if customer.code_melli %}{{customer.code_melli}}{% endif %}{% endfor %}" required />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="postalcode" class="form-label">کدپستی</label>
+                        <input type="text" class="form-control" id="postalcode" value="{% for customer in customer_items %}{% if customer.zip_zode %}{{customer.zip_zode}}{% endif %}{% endfor %}" required />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="tel2" class="form-label">تلفن ثابت
+              <span class="text-body-secondary">(اختیاری)</span>
+            </label>
+                        <div class="input-group has-validation">
+                            <input type="tel" class="form-control" id="tel2" value="{% for customer in customer_items %}{% if customer.static_phone %}{{customer.static_phone}}{% endif %}{% endfor %}" />
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <label for="address" class="form-label">آدرس دقیق</label>
+                        <input type="text" class="form-control" id="address" value="{% for customer in customer_items %}{% if customer.address %}{{customer.address}}{% endif %}{% endfor %}" required />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="address2" class="form-label">زنگ / پلاک
+              <span class="text-body-secondary">(اختیاری)</span></label
+            >
+            <input type="text" class="form-control" id="address2" value="{% for customer in customer_items %}{% if customer.pelak %}{{customer.pelak}}{% endif %}{% endfor %}" />
+          </div>
+          <hr class="my-4" />
+        </div>
+
+        <div class="col-sm-5 fadax_btn">
+            <label for="validationCustom04" class="form-label"
+            >انتخاب روش ارسال</label
+          >
+          <select class="form-select" id="validationCustom04" required>
+            <option selected value="0">انتخاب کنید</option>
+            <option value="1">تحویل حضوری : 0 تومان</option>
+            <option value="2">پست پیشتاژ : 40,000 تومان</option>
+            <option value="3">پیک : 50,000 تومان</option>
+          </select>
+        </div>
+        <hr class="my-4" />
+        {% if request.user.fadax_payment_possible %}
+        <button class="btn btn-success active w-100 click_fadax_btn">پرداخت با درگاه فدکس</button>
+        {% endif %}
+        <button class="w-100 btn btn-danger btn-lg" onclick="order();">
+          پرداخت نهایی
+        </button>
+    </div>
+    </div>
+  </div>
+</div>
+    {% block JS %}
+    <script src="{% static 'js/product/checkout.js' %}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+
+{% endblock %}
+{% endblock %}

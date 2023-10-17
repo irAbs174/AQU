@@ -1,0 +1,103 @@
+@media only screen and (max-width: 1400px) {
+  .card {
+    width: 280px !important ;
+  }
+}
+@media only screen and (max-width: 1199px) {
+  .card {
+    width: 220px !important ;
+  }
+  .card p {
+    font-size: 13px;
+  }
+  .proasidecat {
+    display: none;
+  }
+  .proasidecatrec{
+    display: block;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .proasidecatrec {
+    display: none;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .card {
+    width: 220px !important ;
+  }
+  .card p {
+    font-size: 13px;
+  }
+  .container-fluid-custom {
+    display: none;
+  }
+  .container-fluid-custom-responsive {
+    display: block;
+    direction: ltr;
+    box-shadow: 5px 5px 5px black;
+  }
+
+  .container-fluid-custom-responsive nav a img {
+    width: 100px;
+  }
+
+  .navbar-toggler {
+    border: none;
+    font-size: 20px;
+  }
+  .offcanvas-header {
+    margin: 0;
+  }
+  .offcanvas-body {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 250px !important ;
+  }
+  .card p {
+    font-size: 13px;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .card {
+    width: 500px !important ;
+  }
+}
+@media screen and (max-width: 684px) {
+  .footer1 [type="email"] {
+    width: 70%;
+  }
+  .footer1 [type="submit"] {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 444px) {
+  .footer1 [type="email"] {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+  .footer1 [type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 7px;
+  }
+  .breadcrumb {
+    font-size: 10px !important;
+  }
+  .blog-post-meta span {
+    font-size: 13px;
+  }
+  .bi-truck,.bi-alarm,.bi-award,.bi-bag-check{
+    font-size :13px; 
+  }
+}
+@media only screen and (min-width: 991px) {
+  .container-fluid-custom-responsive {
+    display: none;
+  }
+}

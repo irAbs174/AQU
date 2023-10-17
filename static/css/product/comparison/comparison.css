@@ -1,0 +1,23 @@
+.cardprocomparison {
+    width: 100% !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid rgb(221, 221, 221);
+    text-align: center;
+    padding: 0px;
+  }
+  
+  .cardprocomparison img {
+    padding: 10px;
+  }
+  .cardprocomparison span {
+    font-size: 14px;
+    display: inline;
+    text-align: right;
+  }
+  
+  .comparisonlist th {
+    border: none;
+    background-color: var(--red);
+    color: rgb(255, 255, 255);
+  }

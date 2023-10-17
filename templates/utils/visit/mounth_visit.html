@@ -1,0 +1,59 @@
+{% extends "wagtailadmin/base.html" %}
+{% block titletag %}بازدید ماه جاری{% endblock %}
+{% block extra_css %}
+    {{ block.super }}
+    <style>table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      
+      thead {
+        background-color: #f2f2f2;
+      }
+      
+      th, td {
+        text-align: center;
+        padding: 8px;
+        border: 1px solid #ddd;
+      }
+      
+      th {
+        font-weight: bold;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      
+      tr:hover {
+        background-color: #ddd;
+      }</style>
+{% endblock %}
+{% block content %}
+{% include "wagtailadmin/shared/header.html" with title="آمار ماه جاری" icon="calendar-alt" %}
+<table>
+    <thead>
+      <tr>
+        <th>ردیف</th>
+        <th>آدرس IP</th>
+        <th>زمان بازدید</th>
+        <th>سیستم عامل/مرورگر</th>
+        <th>کلید نشست</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for visit in daily_visit %}
+        <tr>
+            <th>{{visit.id}}</th>
+            <td>{{visit.remote_addr}}</td>
+            <td>{{visit.timestamp}}</td>
+            <td>{{visit.user_agent}}</td>
+            <td>{{visit.session_key}}</td>
+          </tr>
+          {% empty %}
+          <label>بازدید های روزانه خالیست !</label>
+        {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

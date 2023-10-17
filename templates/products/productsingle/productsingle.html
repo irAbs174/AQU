@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block HEADING %}
+<meta name="description" content="{{page.description}}" />
+<meta name="keywords" content="{{page.keywords}}" />
+{% endblock %}
+{% block TITLE %}{{ page.title }}{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/index/comment.css' %}" />
+<link rel="stylesheet" href="{% static 'css/product/productsingle/zoomy.css' %}" />
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block CONTENT %}
+<header class="headerblog">
+  <div id="product_title" class="h1divhead">
+    <h1 class="blogh1 white-color">محصول در حال بارگزاری است. صبور باشید</h1>
+  </div>
+</header>
+<main class="container-fluid">
+  <div class="row">
+    <section
+      class="col-xxl-9 col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12"
+    >
+      <div class="blog-post">
+        <ol id="product_head" class="breadcrumb">
+        </ol>
+        <div class="row">
+          <div
+            class="col-xxl-7 col-xl-7 col-lg-12 col-md-12 col-sm-12 col-12"
+          >
+            <div id="gpro"></div>
+          </div>
+          <div
+            class="col-xxl-5 col-xl-5 col-lg-12 col-md-12 col-sm-12 col-12"
+          >
+            <h1 id="product_model_title" class="blog-post-title h2">عنوان اصلی مقاله</h1>
+            <div class="blog-post-meta">
+              <span class="bi bi-folder2-open"
+                ><a id="product_model_cat" href="">دسته بندی اصلی</a></span
+              >
+
+            </div>
+            <p id="product_short_desc">
+              صفحه در حال بارگزاری است - لطفا صبر کنید
+            </p>
+            <div class="container text-center">
+              <div class="row text-start">
+                <div class="col">
+                  <span class="bi bi-truck navliststyle">
+                    ارسال به سراسر کشور</span
+                  ><br />
+                  <span class="bi bi-award navliststyle"
+                    >ضمانت بازگشت وجه</span
+                  >
+                </div>
+                <div class="col">
+                  <li class="bi bi-alarm navliststyle">ارسال 2 روزه</li>
+
+                  <br />
+                  <span class="bi bi-bag-check navliststyle">
+                    خرید به صورت قسطی
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <!-------------->
+        <div class="pcontent">
+              <h4 class="cursor">توضیحات بیشتر</h4>
+          <p id="product_desc">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                استفاده از طراحان گرافیک است، چاپگرها و متون بلکه زمان مورد نیاز
+                شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای
+                موجود طراحی اساسا مورد استفاده قرار گیرد.
+              </p>
+              <h4 class="cursor">جدول مشخصات</h4>
+         <table id="product_table" class="Specificationslist">
+            <tr class="trtd-a">
+              <td>درحال بارگزاری</td>
+              <td>درحال بارگزاری</td>
+            </tr>
+            <tr class="trtd-a">
+              <td>درحال بارگزاری</td>
+              <td>درحال بارگزاری</td>
+            </tr>
+            <tr class="trtd-a">
+              <td>درحال بارگزاری</td>
+              <td>درحال بارگزاری</td>
+            </tr>
+            <tr class="trtd-a">
+              <td>درحال بارگزاری</td>
+              <td>درحال بارگزاری</td>
+            </tr>
+            <tr class="trtd-a">
+              <td>درحال بارگزاری</td>
+              <td>درحال بارگزاری</td>
+            </tr>
+            <tr class="trtd-a">
+              <td>درحال بارگزاری</td>
+              <td>درحال بارگزاری</td>
+            </tr>
+          </table>
+              <h4 class="cursor">نظرات محصول</h4>
+          <!-- COMMENTS -->
+          <div class="comment-section">
+            <div class="comment-form" onsubmit="addComment(event)">
+              <input
+                type="text"
+                id="usernameInput"
+                placeholder="نام"
+                required
+              /> 
+              <textarea
+                id="commentInput"
+                placeholder="یک بازخورد بنویسید"
+                required
+              ></textarea>
+              <input type="submit" value="Post Comment" />
+            </div>
+            <ul class="comment-list" id="commentList"></ul>
+          </div>
+          <!-- END COMMENT -->
+            </div>
+        <!-------------->
+        <div class="divshare-buttons">
+          <h4 class="h5 text-center m-1 bchs">اشتراک گذاری صفحه</h4>
+          <div class="share-buttons">
+            <a href="#" class="telegram bi bi-telegram"></a>
+            <a href="#" class="whatsapp bi bi-whatsapp"></a>
+            <a href="#" class="email bi bi-envelope-at"></a>
+            <a href="#" class="linkedin bi bi-linkedin"></a>
+            <a href="#" class="facebook bi bi-facebook"></a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="col-xxl-3 col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="position-sticky" style="top: 2rem">
+        <div class="p-4 mb-3 divasidecat">
+          <h4 class="h3 bchs">خرید و پرداخت آنلاین</h4>
+          <div class="text-center">
+            <span id="old_product_price" class="h4 text-decoration-line-through icon2"
+              >290.000 تومان</span
+            ><br />
+            <span id="product_price" class="h1">200.000 تومان</span><br />
+            <span
+              class="decrement cursor bi bi-dash-square-fill red-color"
+            ></span>
+            <span id="count" class="count">1</span>
+            <span
+              class="increment cursor bi bi-plus-square-fill red-color"
+            ></span>
+            <div class="color-picker">
+              <div class="row"></div>
+              <select id="color-select">
+                <option value="">انتخاب رنگ</option>
+              </select>
+              <div class="selected-color"></div>
+            </div>
+              {% csrf_token %}
+              <input id="add_to_cart_product" type="hidden" name="product_id" value="{{page.id}}">
+              <input id="add_to_cart_product_title" type="hidden" name="product_title" value="{{page.product_title}}">
+              <input id="add_to_cart_color_quantity" type="hidden" class="color-input" name="product_color_quantity" value="">
+              <input id="add_to_cart_date" type="hidden" class="color-input" name="add_cart_date" value="">
+              <input id="add_to_cart_color_text" type="hidden" class="color-input" name="selected_color_text" value="">
+              <input id="add_to_cart_image" type="hidden" class="color-input" name="product_image_url" value="{{product.image.url}}">
+              <input id="add_to_cart_quantity" type="hidden" name="quantity" value="1" min="1">
+              <button id="add_cart_btn" class="w-100 btn btn-danger addtocard" type="submit">افزودن به سبد خرید</button>
+          </div>
+          <button type="submit" class="w-100 bi bi-arrow-left-right mt-2 btn btn-outline-danger" onclick="add_comparison()">مقایسه محصول</button>
+          <button type="submit" class="bi bi-heart w-100 mt-2 btn btn-outline-danger" onclick="add_favourite()">علاقه مندی</button>
+          <h4 id="product_is_available" class="h4 mt-2 text-center">محصول در انبار موجود میباشد</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% block JS %}
+    <script src="{% static 'js/product/product_single.js' %}"></script>
+    <script src="{% static 'js/index/comment.js' %}"></script>
+    <script src="{% static 'js/product/zoomy.js' %}"></script>
+    <script src="{% static 'js/jquery/jquery.magic-tabs.js' %}"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"></script>
+{% endblock %}
+{% endblock %}

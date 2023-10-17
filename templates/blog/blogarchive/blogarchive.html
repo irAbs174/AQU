@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{% block TITLE %}{{ page.title }}{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block CONTENT %}
+    <header class="headerblog">
+      <div class="h1divhead">
+        <h1 class="blogh1 white-color">{{ page.title }}</h1>
+      </div>
+    </header>
+    <section class="container-fluid">
+      <div class="row">
+        <section
+          class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12"
+        >
+          <div id="blog_posts_archive" class="row">
+
+          </div>
+          </section>
+        </div>
+      <div class="plusbutton">
+        <button type="button" class="btn btn-outline-danger" id="load-more">
+          بارگیری بیشتر مقالات
+        </button>
+      </div>
+    </section>
+{% block JS %}
+<script src="{%static 'js/blog/blog_archive.js'%}"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+  integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+  crossorigin="anonymous">
+</script>
+{% endblock %}
+{% endblock %}

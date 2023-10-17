@@ -1,0 +1,50 @@
+@import url("../color.ef72f63b2a0e.ef72f63b2a0e.css");
+@import url("main_page_style.93184bc84eec.93184bc84eec.css");
+@import url("main_page_responsive.f46529c0e381.f46529c0e381.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@font-face {
+  font-family: vazir;
+  src: url("../../fonts/Vazir-Medium.d8720cceea13.d8720cceea13.woff") format(woff);
+}
+*,
+body {
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
+  font-family: vazir;
+  font-style: normal;
+}
+.container-fluid {
+  max-width: 1600px;
+}
+::selection {
+  color: var(--white);
+  background-color: var(--red);
+}
+a {
+  text-decoration: none;
+  color: var(--red);
+}
+.p {
+  font-size: 17px;
+  color: rgb(77, 77, 77);
+}
+
+.h1 {
+  font-size: 25px;
+}
+.h2 {
+  font-size: 22px;
+}
+.h3 {
+  font-size: 20px;
+}
+.h4 {
+  font-size: 18px;
+}
+.h5 {
+  font-size: 16px;
+}
+.h6 {
+  font-size: 14px;
+}

@@ -1,0 +1,64 @@
+.container-fluid-custom .apshen {
+  padding: 25px 10px;
+}
+.apshen a {
+  color: var(--textBold);
+}
+
+.container-fluid-custom .apshen a i {
+  margin-left: 15px;
+  color: var(--textBold);
+}
+.logo {
+  width: 90%;
+  height: 60px;
+  margin-top: 8px;
+}
+.logosite {
+  direction: ltr;
+}
+
+.searchnox {
+  display: inline;
+  margin-top: 18px;
+  padding: 7px;
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 5px;
+}
+.searchnox[type="search"] {
+  width: 80%;
+}
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .container-fluid-custom .apshen a i {
+    font-size: 12px;
+  }
+  .apshen a {
+    font-size: 12px;
+  }
+  .searchnox {
+    padding: 5px;
+  }
+
+  .logo {
+    margin-top: 10px;
+    width: 80px;
+    height: 50px;
+  }
+}
+@media only screen and (max-width: 767px) and (min-width: 576px) {
+  .container-fluid-custom .apshen a i {
+    font-size: 10px;
+  }
+  .apshen a {
+    font-size: 10px;
+  }
+
+  .searchnox {
+    display: none;
+  }
+  .logo {
+    margin-top: 10px;
+    width: 80px;
+    height: 50px;
+  }
+}

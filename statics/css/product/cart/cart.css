@@ -1,0 +1,27 @@
+.cardtable {
+  width: 100%;
+}
+.cardtable tr,
+th {
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cardtable th {
+  padding: 10px;
+}
+
+.cardtableaside {
+  width: 100%;
+}
+.cardtableaside th,
+td {
+  padding: 10px;
+}
+
+.cardtableaside tr {
+  border: 1px solid rgb(209, 209, 209);
+  border-radius: 10px;
+  text-align: center;
+}

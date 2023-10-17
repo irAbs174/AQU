@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% load static %}
+{% load wagtailcore_tags %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{% block TITLE %}{{ page.title }}{% endblock %}
+{% block CSS %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+{% block CONTENT %}
+<input type="hidden" name="page_number" value="1">
+<input type="hidden" name="pagintage_key" value="">
+<header class="headerblog">
+  <div class="h1divhead">
+    <h1 class="blogh1 white-color">آرشیو محصولات</h1>
+  </div>
+</header>
+<main class="container-fluid">
+  <div class="row">
+    <div class="col-xxl-3 col-xl-3 col-lg-4 col-md-4 col-sm-12 col-12">
+      <div class="position-sticky" style="top: 1rem">
+        <div class="p-4 mb-3 asidefilter">
+          <h4 class="h3 bchs">فیلتر قیمت</h4>
+          <input type="number" id="min-price" value="" placeholder="حداقل قیمت از.....تومان" />
+          <input type="number" id="max-price" value="" placeholder="حداکثر قیمت تا.....تومان" />
+          <button id="rangePriceFilter" class="btn btn-outline-danger">
+            اعمال فیلتر
+          </button>
+        </div>
+        <div class="p-4 mb-3 asidefilter">
+          <h4 class="h3 bchs">فیلتر محصول</h4>
+          <label for="specialdiscount">محصولات تخفیف دار</label>
+          <input type="checkbox" id="specialdiscount" />
+        </div>
+        <div id="setBrand" class="p-4 mb-3 asidefilter">
+          <h4 class="h3 bchs">انتخاب برند</h4>
+          <!--LOAD FROM JS-->
+        </div>
+        <div id="setCat" class="p-4 mb-3 asidefilter">
+          <h4 class="h3 bchs">انتخاب دسته بندی</h4>
+          <!--LOAD FROM JS-->
+        </div>
+      </div>
+    </div>
+    <section class="col-xxl-9 col-xl-9 col-lg-8 col-md-8 col-sm-12 col-12">
+      <div class="sortpro">
+        <span class="bi bi-sort-down"> مرتب سازی: </span>
+        <a href="#"><span class="icon2 default_filter">جدیدترین</span></a>
+        <a href="#"><span class="icon2 old_filter">قدیمی ترین</span></a>
+        <a href="#"><span class="icon2 expensive_filter">گران‌ترین</span></a>
+        <a href="#"><span class="icon2 cheapest_filter">ارزان‌ترین</span></a>
+      </div>
+
+      <div id="PRODUCT" class="row">
+        <!-- IMPORT CONTEXT FROM JS -->
+      </div>
+      <div class="plusbutton">
+        <button type="button" class="btn btn-outline-danger load-more">
+          بارگیری بیشتر محصولات
+        </button>
+    </section>
+  </div>
+</main>
+{% block JS %}
+<script src="{% static 'js/product/product_archive.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+  integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+{% endblock %}
+{% endblock %}

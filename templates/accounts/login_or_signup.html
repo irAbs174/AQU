@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block HEADING %}
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+{% endblock %}
+{%block TITLE%}ورود به حساب کاربری{% endblock %}
+{% block CSS %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/accounts/stylelogin.css' %}" />
+<link rel="stylesheet" href="{% static 'css/accounts/dashboard.css' %}" />
+<link rel="stylesheet" href="{% static 'css/accounts/userpanel.css' %}" />
+{% endblock %}
+{% block CONTENT %}
+{% if user.is_authenticated %}
+<h3 style="color: red;"> Error : you are now Login ! </h3>
+<button onclick="window.history.back();">Go Back</button>
+<a href="{% url 'logout' %}"><button>logout</button></a>
+{% else %}
+    <!--<div class="container-fluid">-->
+    <!--  <div class="row">-->
+    <!--    <div class="col asidelogform">-->
+    <!--      <div class="container">-->
+    <!--        <section class="main">-->
+    <!--          <form class="form-3" method="POST">-->
+    <!--            -->
+    <!--            {{ login_form.as_p }}-->
+    <!--            <input type="checkbox" name="remember" id="remember" />-->
+    <!--            <label for="remember">مرا به خاطر بسپار</label>-->
+    <!--            <input-->
+    <!--              type="submit"-->
+    <!--              name="submit"-->
+    <!--              value="ورود به حساب کاربری"-->
+    <!--            />-->
+    <!--          </form>-->
+    <!--        </section>-->
+    <!--      </div>-->
+    <!--      <div class="container">-->
+    <!--        <section class="main">-->
+    <!--          <form class="form-3" method="POST">-->
+    <!--            {% csrf_token %}-->
+    <!--            <label for="{{ signup_form.phoneNumber.id_for_label }}">شماره تماس</label>-->
+    <!--            {{ signup_form.phoneNumber }}-->
+    <!--            <label for="signup_form.password1.id_for_label">رمزعبور</label>-->
+    <!--            {{ signup_form.password1 }}-->
+    <!--            <label for="signup_form.password2.id_for_label">تکرار رمزعبور</label>-->
+    <!--            {{ signup_form.password2 }}-->
+    <!--            <input type="checkbox" name="remember" id="remember" />-->
+    <!--            <label for="remember">مرا به خاطر بسپار</label>-->
+    <!--            <input type="submit" name="submit" value="ساخت حساب کاربری" />-->
+    <!--          </form>-->
+    <!--        </section>-->
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--    <div class="col asidelogimg">-->
+    <!--      <div></div>-->
+    <!--    </div>-->
+    <!--  </div>-->
+    <!--</div>-->
+    <section class="container-fluid logsec">
+    <h2 class="m-5">وارد حساب کاربری خود شوید و یا ثبت نام کنید</h2>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form method="POST">
+            {% csrf_token %}
+          <a href="#">
+            <img src="http://kikpick.com/media/images/kikpick.original.png" alt="لوگو سایت فروشگاه اینترنتی کیک پیک"
+              class="text-center" width="100%" /></a>
+          <h3>ثبت نام در سایت</h3>
+
+          <span> برای ثبت نام از شماره تماس استفاده کنید</span>
+          <input id="id_phoneNumber" type="text" name="phoneNumber" placeholder="شماره تماس" required />
+          <input id="id_password1" type="password" name="password1" placeholder="رمزعبور" required />
+          <input id="id_password2" type="password" name="password2" placeholder="تکرار رمزعبور" required />
+          <input class="sflog" type="submit" name="submit" value="ثبت نام" />
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form method="POST">
+            {% csrf_token %}
+          <a href="#">
+            <img src="http://kikpick.com/media/images/kikpick.original.png" alt="لوگو سایت فروشگاه اینترنتی کیک پیک"
+              class="text-center" width="100%" /></a>
+          <h3> ورود به حساب </h3>
+
+          <span> برای ورود از شماره تماس استفاده کنید</span>
+          <input id="id_username" type="text" name="username" placeholder="شماره تماس" autocapitalize="none"
+            autocomplete="username" maxlength="20" required />
+          <input id="id_password" type="password" name="password" placeholder="رمزعبور"
+            autocomplete="current-password required " />
+          <a href="#"><span class="black-color">رمزعبور را فراموش کردید؟</span> <u>کلیک کنید</u></a>
+          <input class="sflog" type="submit" name="submit" value="ورود" />
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h3>!سلام دوست عزیز</h3>
+            <p>
+              جهت ثبت نام در سایت کیک پیک لطفا از شماره تماس خود استفاده کنید
+            </p>
+            <button class="ghost" id="signIn">حساب دارید؟ وارد شوید</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>!خوش آمدید</h1>
+            <p>
+              جهت ورود پنل کاربری کیک پیک لطفا از شماره تماس خود استفاده کنید
+            </p>
+            <button class="ghost" id="signUp">حساب ندارید؟ ثبت نام کنید</button>
+          </div>
+        </div>
+      </div>
+    </div>
+        <script>
+            const signUpButton = document.getElementById("signUp");
+            const signInButton = document.getElementById("signIn");
+            const container = document.getElementById("container");
+            signUpButton.addEventListener("click", () => {container.classList.add("right-panel-active");});
+            signInButton.addEventListener("click", () => {container.classList.remove("right-panel-active");});
+
+        </script>
+  </section>
+{% endif %}
+{% endblock %}
