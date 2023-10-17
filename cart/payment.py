@@ -24,7 +24,7 @@ def fadax_pay(request):
                 url = "https://fadax.ir/supplier/v1/payment-token"
                 headers = {
                     'accept': 'application/json',
-                    'Authorization': 'Bearer fadax_token',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtpa3BpY2siLCJpYXQiOjE2OTczNTMzMTd9.Dma35yx2c1L8j9Cwwk2y3McIaX_nAMWI4kXqoTF87Yw',
                     'Content-Type': 'application/json'
                 }
                 for item in cart:
@@ -74,7 +74,7 @@ def fadax_pay(request):
                 url = "https://fadax.ir/supplier/v1/verify’"
                 headers = {
                     "accept": "application/json",
-                    "Authorization": "Bearer fadax_token"
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtpa3BpY2siLCJpYXQiOjE2OTczNTMzMTd9.Dma35yx2c1L8j9Cwwk2y3McIaX_nAMWI4kXqoTF87Yw"
                 }
                 data = {
                     "paymentToken": paymentToken
@@ -90,7 +90,7 @@ def fadax_pay(request):
                 url = "https://fadax.ir/supplier/v1/status"
                 headers = {
                     'accept': 'application/json',
-                    'Authorization': 'Bearer fadax_token',
+                    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtpa3BpY2siLCJpYXQiOjE2OTczNTMzMTd9.Dma35yx2c1L8j9Cwwk2y3McIaX_nAMWI4kXqoTF87Yw',
                     'Content-Type': 'application/json'
                 }
                 for data in Fadax_payment.objects.filter(customer = request.user.phoneNumber):
@@ -112,7 +112,7 @@ def fadax_pay(request):
                 url = "https://fadax.ir/supplier/v1/cancel"
                 headers = {
                     "accept": "application/json",
-                    "Authorization": "Bearer fadax_token",
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtpa3BpY2siLCJpYXQiOjE2OTczNTMzMTd9.Dma35yx2c1L8j9Cwwk2y3McIaX_nAMWI4kXqoTF87Yw",
                     "Content-Type": "application/json"
                 }
                 for item in Fadax_payment.objects.filter(customer = request.user.phoneNumber):
@@ -133,7 +133,7 @@ def fadax_pay(request):
                 url = "https://fadax.ir/supplier/v1/revert"
                 headers = {
                     "accept": "application/json",
-                    "Authorization": "Bearer fadax_token",
+                    "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtpa3BpY2siLCJpYXQiOjE2OTczNTMzMTd9.Dma35yx2c1L8j9Cwwk2y3McIaX_nAMWI4kXqoTF87Yw",
                     "Content-Type": "application/json"
                 }
                 for i in Cart.objects.filter(user = request.user.phoneNumber):

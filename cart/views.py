@@ -79,7 +79,7 @@ def cart_view(request):
     url = f"https://fadax.ir/supplier/v1/eligible?amount={cart_count}&mobile={phone}"
     headers = {
         "accept": "application/json",
-        "Authorization": "Bearer fadax_token"
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtpa3BpY2siLCJpYXQiOjE2OTczNTMzMTd9.Dma35yx2c1L8j9Cwwk2y3McIaX_nAMWI4kXqoTF87Yw"
         "Content-Type': 'application/json"
         }
 
