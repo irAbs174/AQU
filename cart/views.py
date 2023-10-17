@@ -85,9 +85,9 @@ def cart_view(request):
 
     response_recived = requests.get(url, headers=headers)
     response = response_recived.json()
-    if response.success:
-        data = response.response
-        if data.status == 1001:
+    if response['success']:
+        data = response['response']
+        if data['status'] == 1001:
             Fadax_payment.objects.create(
                 customer = request.user.phoneNumber,
             )
@@ -95,7 +95,10 @@ def cart_view(request):
                 fadax_payment_possible = True
             )
             print("=> USER CAN PAY WITH FADAX => status : 1001")
-        elif data.status == 1002:
+        elif data['status'] == 1002:
+            UserModel.objects.filter(phoneNumber=phone).update(
+                fadax_payment_possible = False
+            )
             print("=> USER CAN NOT PAY WITH FADAX status : 1002")
         else:
             print("=> USER CAN NOT PAY WITH FADAX")
