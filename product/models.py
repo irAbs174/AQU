@@ -17,7 +17,6 @@ from django.db.models import Sum
 from wagtail.api import APIField
 from django.db import models
 from django import forms
-import pandas as pd
 
 
 class ProductPageManager(PageManager):
@@ -485,35 +484,6 @@ class InvoiceItem(models.Model):
     product = models.ForeignKey(InventoryItem, on_delete=models.PROTECT)
     quantity = models.IntegerField(default=0)
 
-
-class ExportManager:
-    def export_to_pdf(self):
-        products = InventoryItem.objects.all()
-        data = {'InventoryItem Name': [], 'Total Sales': [], 'Total Visits': []}
-        for product in products:
-            data['InventoryItem Name'].append(product.name)
-            data['Total Sales'].append(product.get_product_total_sales())
-            data['Total Visits'].append(product.get_product_total_visits())
-
-        df = pd.DataFrame(data)
-        output_path = 'product_sales.pdf'
-        df.to_pdf(output_path)
-
-        return output_path
-
-    def export_to_excel(self):
-        products = ProInventoryItemduct.objects.all()
-        data = {'InventoryItem Name': [], 'Total Sales': [], 'Total Visits': []}
-        for product in products:
-            data['InventoryItem Name'].append(product.name)
-            data['Total Sales'].append(product.get_product_total_sales())
-            data['Total Visits'].append(product.get_product_total_visits())
-
-        df = pd.DataFrame(data)
-        output_path = 'product_sales.xlsx'
-        df.to_excel(output_path)
-
-        return output_path
 
 ORDER_STATUS = ((0, "در حال پردازش"), (1, "تکمیل شده"), (2, "استرداد"), (3, "لغو شده"), (4, "در انتظار پرداخت"))
 
