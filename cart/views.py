@@ -11,7 +11,9 @@ from django.shortcuts import render, redirect
 from rest_framework import generics, filters
 from product.forms import DiscountForm
 from django.contrib import messages
-import requests 
+from .models import Fadax_payment
+import requests
+import json
 
 
 class CartViewSet(generics.ListCreateAPIView):
@@ -74,13 +76,16 @@ def cart_view(request):
     phone = request.user.phoneNumber
     list_cart = Cart.objects.filter(user=phone)
     cart_count = list_cart.count()
-
+    for i in list_cart:
+        total_price = i.total_price
+    print(f'{total_price}')
+    print(f"0{int(phone)}")
     # fadax payment possible check:
-    url = f"https://fadax.ir/supplier/v1/eligible?amount={cart_count}&mobile={phone}"
+    url = f"https://gateway.fadax.ir/supplier/v1/eligible?amount={total_price}&mobile=0{int(phone)}"
     headers = {
         "accept": "application/json",
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtpa3BpY2siLCJpYXQiOjE2OTczNTMzMTd9.Dma35yx2c1L8j9Cwwk2y3McIaX_nAMWI4kXqoTF87Yw"
-        "Content-Type': 'application/json"
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imtpa3BpY2siLCJpYXQiOjE2OTczNTMzMTd9.Dma35yx2c1L8j9Cwwk2y3McIaX_nAMWI4kXqoTF87Yw",
+        "Content-Type": "application/json"
         }
 
     response_recived = requests.get(url, headers=headers)

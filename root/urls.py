@@ -50,6 +50,7 @@ urlpatterns = [
     path('get_bank/', get_bank, name="bank"),
     path(DEVELOPERS_PANEL, admin.site.urls),
     path('cart/', include('cart.urls')),
+    
     path(SITE_API, api_router.urls),
     
     re_path(r'^sitemap.xml$', sitemap),

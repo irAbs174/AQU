@@ -222,22 +222,20 @@ STATICFILES_FINDERS = [
 ]
 
 # STATIC FILES DIRS
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, 'static'),
-]
+STATICFILES_DIRS = ['static']
 
 # Manifest Static Files Storage is recommended in production, to prevent outdated
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
-# static root Dir configuration
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# static root Dir configuration 
+STATIC_ROOT = '/var/www/public/kikpick/static'
 
 # STATIC URL
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Media root Dir configuration
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = 'media/'
+MEDIA_ROOT = '/var/www/public/kikpick/media'
+MEDIA_URL = '/media/'
 
 # SERVER DEVELOPER configuration
 TEST_DEVELOPER_USER = [

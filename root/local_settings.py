@@ -19,19 +19,19 @@ LOCAL_ACCOUNT_USERNAME_BLACKLIST = ["admin", 'security', 'secure', 'protection',
            'virus', 'vulnerabilityassessment', 'zeroday', "god"]
 
 # CSRF LOCAL TRUSTED ORIGINS :
-CSRF_LOCAL_TRUSTED_ORIGINS = ['https://8000-irabs174-aqu-0d8g5yaojsf.ws-eu105.gitpod.io']
+CSRF_LOCAL_TRUSTED_ORIGINS = ['https://kikpick.com', 'https://www.kikpick.com']
 
 # ALLOWED LOCAL HOSTS :
-ALLOWED_LOCAL_HOSTS = ['8000-irabs174-aqu-0d8g5yaojsf.ws-eu105.gitpod.io', '127.0.0.1', 'localhost']
+ALLOWED_LOCAL_HOSTS = ['kikpick.com', 'www.kikpick.com']
 
 # SECRET KEY
-SEC_KEY = '&jd297bkjdw87t@@sjihc87)iidoksijy@Q#4seyuig()&^%&^'
+SEC_KEY = 'django-insecure-38n_&5$5ga9)#!-r$&jcyk3^v^673x0u3%f8)*4ekxrd$)=ujs'
 
 # LOCAL HOST IP :
 LOCAL_HOST = ('127.0.0.1', '10.0.2.2')
 
 # LOCAL SITE NAME :
-LOCAL_SITE_NAME = 'YOUR_DOMIN'
+LOCAL_SITE_NAME = 'kikpick'
 
 # LOGIN_URL :
 LOCAL_LOGIN_URL = '/accounts/'
@@ -52,10 +52,14 @@ SUPPORT_PAGE = 'UNIQUESUPPORT174/'
 SITE_TRAFFIC = 'UNIQUETRAFFIC174/'
 
 # BASE_SITE
-BASE_ACTIVE_SITE = '8000-irabs174-aqu-0d8g5yaojsf.ws-eu105.gitpod.io'
+BASE_ACTIVE_SITE = 'kikpick.com'
 
 # SITE API URL
 SITE_API = 'UNIQUEAPI174/'
 
 # SITE DEBUG
-SITE_DEBIG = True
+SITE_DEBIG = False
+
+
+
+

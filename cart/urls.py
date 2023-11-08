@@ -2,12 +2,13 @@ from django.urls import path
 from .views import cart_view, add_to_cart, update_cart, remove_from_cart, apply_discount, clear_cart ,checkout, checkout_view
 from .favourite import add_favourite, remove_favourite, clear_favourite
 from .comparison import comparison_view ,add_comparison, clear_comparison
-from .payment import (fadax_pay, fadax_return_shop)
+from .payment import (fadax_pay, fadax_return_shop, test)
 
 
 urlpatterns = [
     path('', cart_view, name='cart'),
-    path('fadax', fadax_pay, name="fadax_pay"),
+    path('test', test),
+    path('fadax/', fadax_pay),
     path('clear', clear_cart, name='clear_cart' ),
     path('add', add_to_cart, name='add_to_cart' ),
     path('update', update_cart, name='update_cart' ),
