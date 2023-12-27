@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Table with Selectable Lists and Delete Rows</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    input, select {
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 8px 12px;
+      background-color: #4285f4;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3c79e6;
+    }
+  </style>
+</head>
+<body>
+  <table id="materials-table">
+    <thead>
+      <tr>
+        <th>نام</th>
+        <th>نماد</th>
+        <th>توضیحات</th>
+        <th>موجودی</th>
+        <th>قیمت</th>
+        <th>واحد</th>
+        <th>عملیات</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><input type="text" class="name"></td>
+        <td><input type="text" class="symbol"></td>
+        <td><input type="text" class="description"></td>
+        <td><input type="number" class="quantity" value="0"></td>
+        <td><input type="number" class="price" value="0"></td>
+        <td>
+          <select class="unit">
+            <option value="Unit1">Unit1</option>
+            <option value="Unit2">Unit2</option>
+            <option value="Unit3">Unit3</option>
+          </select>
+        </td>
+        <td><button onclick="deleteRow(this)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button onclick="addRow()">Add Row</button>
+  <button onclick="saveData()">Save</button>
+
+  <script>
+    function addRow() {
+      const table = document.getElementById('materials-table').getElementsByTagName('tbody')[0];
+      const newRow = table.insertRow(table.rows.length);
+      const columns = ['name', 'symbol', 'description', 'quantity', 'price', 'unit', 'action'];
+
+      columns.forEach((col, index) => {
+        const cell = newRow.insertCell(index);
+        if (col === 'unit') {
+          const select = document.createElement('select');
+          select.classList.add('unit');
+          const units = ['Unit1', 'Unit2', 'Unit3']; // Replace with your list of units from Django
+          units.forEach(unit => {
+            const option = document.createElement('option');
+            option.value = unit;
+            option.text = unit;
+            select.appendChild(option);
+          });
+          cell.appendChild(select);
+        } else if (col === 'action') {
+          const button = document.createElement('button');
+          button.textContent = 'Delete';
+          button.onclick = function() {
+            deleteRow(this);
+          };
+          cell.appendChild(button);
+        } else {
+          const input = document.createElement('input');
+          input.type = col === 'quantity' || col === 'price' ? 'number' : 'text';
+          input.classList.add(col);
+          input.value = col === 'quantity' || col === 'price' ? 0 : '';
+          cell.appendChild(input);
+        }
+      });
+    }
+
+    function deleteRow(btn) {
+      const row = btn.parentNode.parentNode;
+      row.parentNode.removeChild(row);
+    }
+
+    function saveData() {
+      const table = document.getElementById('materials-table');
+      const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+      const data = [];
+
+      for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        const rowData = {};
+        for (let j = 0; j < cells.length - 1; j++) {
+          const cell = cells[j].querySelector('input, select');
+          rowData[cell.classList[0]] = cell.value;
+        }
+        data.push(rowData);
+      }
+
+      console.log(data);
+      // Add logic to handle the data (e.g., sending it to a server, etc.)
+    }
+  </script>
+</body>
+</html>

@@ -1,3 +1,17 @@
-env
-__pycache__
+DEVELOPER_NOTES
+venv
+*.pyc
+*.DS_Store
+*.egg*
+/dist/
+/.idea
+/docs/_build/
+/node_modules/
+build/
+/staticfiles/
 
+#src
+*.sqlite*
+
+.env
+yarn.lock

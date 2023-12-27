@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  thead {
+    background-color: #f2f2f2;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
+  input, select {
+    width: 100%;
+    padding: 6px;
+    box-sizing: border-box;
+  }
+  button {
+    padding: 8px 12px;
+    background-color: #4285f4;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #3c79e6;
+  }
+  
+  #create-table-btn {
+    margin: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+  }
