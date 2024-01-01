@@ -33,7 +33,6 @@ def materials_detail(request):
     data = json.loads(request.body)
     material_name = data.get('material_name')
     material_object = Materials.objects.filter(material_name=material_name)
-
     detail = {}
     for data in material_object:
       detail['material_key'] = data.material_key
