@@ -27,17 +27,17 @@ function addRow(name, simbol, desc, quantity, price, unit) {
   const newRow = tableBody.insertRow();
 
   newRow.innerHTML = `
-    <td><input type="text" class="material-name" value="${name}"></td>
-    <td><input type="text" class="material-symbol" value="${simbol}"></td>
-    <td><input type="text" class="material-description" value="${desc}"></td>
-    <td><input type="number" class="material-quantity"value="${quantity}"></td>
-    <td><input type="number" class="material-price" value="${price}"></td>
+    <td><input class="cell" type="text" class="material-name" value="${name}"></td>
+    <td><input class="cell" type="text" class="material-symbol" value="${simbol}"></td>
+    <td><input class="cell" type="text" class="material-description" value="${desc}"></td>
+    <td><input class="cell" type="number" class="material-quantity"value="${quantity}"></td>
+    <td><input class="cell" type="number" class="material-price" value="${price}"></td>
     <td>
-      <select class="material-unit">
+      <select class="material-unit cell">
         <option value="Unit1">${unit}</option>
       </select>
     </td>
-    <td><button onclick="deleteRow(this)">حذف ماده</button></td>
+    <td><button id="delete-cell" onclick="deleteRow(this)">حذف ماده</button></td>
   `;
 }
 
@@ -116,11 +116,11 @@ function material_detail_receive(selectedMaterial) {
       // Assuming `response` contains the new material data in the expected format
       addRow(
         response.status.material_name,
-        "SIM", // Change these keys to match your response data structure
-        "SIM",
+        response.status.material_key, // Change these keys to match your response data structure
+        response.status.material_color,
         10,
         10,
-        "SIM",
+        response.status.material_unit,
       );
     } else {
       Swal.fire('خطا', 'درخواست به سرور با مشکل مواجه شد', 'error');
