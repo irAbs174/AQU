@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="{% static 'css/analys/new.css' %}">
   {% endblock stylesheets %} 
   {% block content %}
-  <button type="button" class="start_select_material create-table-btn">افزودن ماده اولیه و شروع تحلیل</button>
-  <div id="table-container">
+<div id="table-container"> </div>
+<button id="create-table-btn" onclick="createTable()">Create Table</button>
+<button id="add-row-btn" onclick="selectMaterial()" style="display:none;">Add Material</button>
+<button id="save-data-btn" onclick="saveData()" style="display:none;">Save Data</button>
   </div>
   {% block scripts %}
   <script src="{% static 'js/analys/new.js' %}"></script>
