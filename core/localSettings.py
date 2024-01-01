@@ -8,9 +8,9 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = ['8000-irabs174-pas-hwstx5sbp8w.ws-eu107.gitpod.io', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['8000-irabs174-aqu-j9wbd7zxgda.ws-eu107.gitpod.io', 'localhost', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-irabs174-pas-hwstx5sbp8w.ws-eu107.gitpod.io', 'http://localhost:8000', 'http://localhost:5085', 'http://127.0.0.1:8000', 'http://127.0.0.1:5085']
+CSRF_TRUSTED_ORIGINS = ['https://8000-irabs174-aqu-j9wbd7zxgda.ws-eu107.gitpod.io', 'http://localhost:8000', 'http://localhost:5085', 'http://127.0.0.1:8000', 'http://127.0.0.1:5085']
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
