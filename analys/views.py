@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from materials.models import (Materials)
 from django.http import JsonResponse
 from django.shortcuts import render
+import json
 
 # This function return view for new analys page
 @login_required
@@ -29,9 +30,8 @@ def materials_list(request):
 def materials_detail(request):
   ''' check if request is post its valid request else return bad request '''
   if request.method == 'POST':
-
-    # Give material name from sended request and filter database
-    material_name = request.POST.get('material_name')
+    data = json.loads(request.body)
+    material_name = data.get('material_name')
     material_object = Materials.objects.filter(material_name=material_name)
 
     detail = {}
