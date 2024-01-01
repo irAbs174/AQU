@@ -6,36 +6,58 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    background-color: #ffffff;
+    border-radius: 12px;
+  }
+  table:hover{
+    background-color: #e0fff4;
   }
   th, td {
-    border: 1px solid #ccc;
     padding: 8px;
     text-align: center;
   }
   thead {
-    background-color: #f2f2f2;
+    background-color: #000000;
   }
   th {
-    background-color: #f2f2f2;
+    background-color: #e28bbb;
   }
   input, select {
     width: 100%;
-    padding: 6px;
-    box-sizing: border-box;
+    padding: 2%;
+    background-color: #e2ffe0;
+    border-radius: 7px;
+    color:#096587;
   }
   button {
     padding: 8px 12px;
-    background-color: #4285f4;
-    color: #fff;
+    background-color: #bf1bfa;
+    color: rgba(226, 202, 202, 0.705)000;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
+  }
+  button:hover {
+    background-color: #b34cd8;
+  }
+  #delete-cell{
+    padding: 8px 12px;
+    background-color: #e32a05;
+    color: rgb(255, 255, 255)000;
     border: none;
     cursor: pointer;
   }
-  button:hover {
-    background-color: #3c79e6;
+  #delete-cell:hover{
+    background-color: #b62204;
   }
   
   #create-table-btn {
+    width: 100%;
     margin: 20px;
     padding: 10px 20px;
     font-size: 16px;
+    background-color: #29c68a;
+  }
+  #create-table-btn:hover{
+    background-color: #199566;
   }
