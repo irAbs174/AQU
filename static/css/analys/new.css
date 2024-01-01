@@ -1,13 +1,15 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    padding: 30px;
   }
   table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
-    background-color: #ebebeb;
+    background-color: #f6f6f6;
     border-radius: 12px;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
   }
   td {
     padding: 8px;
@@ -21,7 +23,7 @@ body {
     background-color: #000000;
   }
   th {
-    background-color: #e28bbb;
+    background-color: #de69a9;
     padding: 8px;
     text-align: center;
     border-top: 1px solid #5c5c5c;
