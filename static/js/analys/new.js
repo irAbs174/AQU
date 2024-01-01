@@ -27,11 +27,11 @@ function addRow(name, simbol, desc, quantity, price, unit) {
   const newRow = tableBody.insertRow();
 
   newRow.innerHTML = `
-    <td><input class="cell" type="text" class="material-name" value="${name}"></td>
-    <td><input class="cell" type="text" class="material-symbol" value="${simbol}"></td>
-    <td><input class="cell" type="text" class="material-description" value="${desc}"></td>
-    <td><input class="cell" type="number" class="material-quantity"value="${quantity}"></td>
-    <td><input class="cell" type="number" class="material-price" value="${price}"></td>
+    <td><input class="cell" type="text" class="material-name" value="${name}" disabled></td>
+    <td><input class="cell" type="text" class="material-symbol" value="${simbol}" disabled></td>
+    <td><input class="cell" type="text" class="material-description" value="${desc}" disabled></td>
+    <td><input class="cell" type="number" class="material-quantity"value="${quantity}" disabled></td>
+    <td><input class="cell" type="number" class="material-price" value="${price}" disabled></td>
     <td>
       <select class="material-unit cell">
         <option value="Unit1">${unit}</option>
