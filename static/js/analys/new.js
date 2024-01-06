@@ -14,6 +14,17 @@ function createTable() {
       </thead>
       <tbody></tbody>
     </table>
+    <table id="total">
+    <thead>
+      <tr>
+        <th id="total-tha">جمع کل</th>
+      </tr>
+      <tr>
+      <th id="total-th">اکسل پی دی اف</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
   `;
   document.getElementById('table-container').innerHTML = tableHTML;
   document.getElementById('create-table-btn').style.display = "none";
@@ -39,10 +50,26 @@ function addRow(name, simbol, desc, quantity, price, unit) {
     </td>
     <td><button id="delete-cell" onclick="deleteRow(this)">حذف ماده</button></td>
   `;
+    // After inserting the row, calculate the total
+    calculateTotal();
 }
 
 function deleteRow(btn) {
   btn.closest('tr').remove();
+  // After deleting the row, calculate the total
+  calculateTotal();
+}
+
+function calculateTotal() {
+  const rows = document.getElementById('materials-table').querySelectorAll('tbody tr');
+  let totalPrice = 0;
+  Array.from(rows).forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const quantity = parseFloat(inputs[3].value); // Assuming index 3 is the quantity input
+    const price = parseFloat(inputs[4].value); // Assuming index 4 is the price input
+    totalPrice += quantity * price;
+  });
+  document.getElementById('total-th').textContent = totalPrice; // Display the total in the total cell
 }
 
 function saveData() {
@@ -61,6 +88,18 @@ function saveData() {
   });
 
   console.log(data);
+
+  let totalPrice = 0;
+  Array.from(rows).forEach(row => {
+    const inputs = row.querySelectorAll('input');
+    const quantity = parseFloat(inputs[3].value);
+    const price = parseFloat(inputs[4].value);
+    totalPrice += quantity * price;
+  });
+
+  const totalData = {
+    total: totalPrice
+  };
   // Here, you would typically send this data to the server.
   // For example:
   // fetch('api/materials/save', {
