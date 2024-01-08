@@ -11,8 +11,14 @@ body {
     border-radius: 12px;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
   }
+  #total-tha{
+    background-color: #f064f2;
+    padding: 8px;
+    text-align: center;
+    border-top: 1px solid #5c5c5c;
+  }
   #total-th{
-    background-color: #64f2c7;
+    background-color: #e4e4e4;
     padding: 8px;
     text-align: center;
     border-top: 1px solid #5c5c5c;

@@ -20,7 +20,7 @@ function createTable() {
         <th id="total-tha">جمع کل</th>
       </tr>
       <tr>
-      <th id="total-th">اکسل پی دی اف</th>
+      <th id="total-th">0</th>
     </tr>
     </thead>
     <tbody></tbody>
@@ -66,8 +66,7 @@ function calculateTotal() {
   Array.from(rows).forEach(row => {
     const inputs = row.querySelectorAll('input');
     const quantity = parseFloat(inputs[3].value); // Assuming index 3 is the quantity input
-    const price = parseFloat(inputs[4].value); // Assuming index 4 is the price input
-    totalPrice += quantity * price;
+    totalPrice += quantity;
   });
   document.getElementById('total-th').textContent = totalPrice; // Display the total in the total cell
 }
